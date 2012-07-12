@@ -4,7 +4,7 @@
 <html>
   <head>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    	<title>Ciné Pantin</title>
+    	<title>Ciné Pantin !</title>
     	<c:import url="/includes/html_head.jsp" />
   </head>
   <body>
