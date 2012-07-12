@@ -1,0 +1,12 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cinepantin</groupId>
+  <artifactId>web-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Ciné Pantin web project</name>
+  <description>The "Ciné Pantin web project" is a fictive business case, developped as a classwork lab by a 3-student group (Alain+Christelle+Houyam) in a "CQP DNT" French SYNTEC-CICM cursus (@AFRAMP/2012/02)</description>
+  <modules>
+  	<module>web-public</module>
+  </modules>
+</project>
