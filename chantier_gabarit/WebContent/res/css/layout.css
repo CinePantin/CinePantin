@@ -1,0 +1,10 @@
+#nav {
+	float:left;
+}
+#corps {
+	float:right;
+}
+#footer {
+	clear: both;
+	border-top: 1px dotted #CCC;
+}
