@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Books")
 @DiscriminatorValue("Books") // Si non défini, le nom de l'entité sera utilisé
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name="idArticle")
 public class PhysicalBookImpl extends PhysicalArticleImpl implements PhysicalBook {
 
 	/*
@@ -42,9 +42,8 @@ public class PhysicalBookImpl extends PhysicalArticleImpl implements PhysicalBoo
 	public PhysicalBookImpl() {
 		// empty constructor, as per JPA requirements
 	}
-	public PhysicalBookImpl(int id, String title, String author) {
+	public PhysicalBookImpl(String title, String author) {
 		super();
-		this.setArticleId(id);
 		this.author = author;
 		this.title = title;
 	}

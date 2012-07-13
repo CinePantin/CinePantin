@@ -1,5 +1,6 @@
 package com.cinepantin.web.domain;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -29,14 +30,15 @@ public class ArticleImpl implements Article {
 	 *		Article interface implementation 
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idArticle")
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int idArticle;
 	public int getIdArticle() {
 		return this.idArticle;
 	}
-	public void setArticleId(int idArticle) {
-		this.idArticle = idArticle;
-	}
+	
+	@Column(name="toto")
+	private String toto = "toto";
 	
 	public String getDescription() {
 		// TODO Mock code, implementation pending

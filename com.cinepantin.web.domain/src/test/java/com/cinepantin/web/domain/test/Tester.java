@@ -1,8 +1,13 @@
 package com.cinepantin.web.domain.test;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -22,12 +27,33 @@ public class Tester {
 		this.em = em;
 	}
 
-	@Transactional
-    void test() {
+	@Transactional()
+    public void test() {
 
-    	PhysicalBook book = new PhysicalBookImpl(1, "Le nom de la Rose", "Zorro");
-    	
+		ApplicationContext context = 
+		    	new ClassPathXmlApplicationContext("com/cinepantin/web/domain/test/Spring-ApplicationContext.xml");
+		
+    	 PhysicalBook book = new PhysicalBookImpl("Le nom de la Rose", "Zorro");
+		/*PhysicalBookImpl book = (PhysicalBookImpl) context.getBean(PhysicalBookImpl.class) ;
+    	book.setAuthor("Marx");
+    	book.setTitle("Le capital");
+    	*/
+    	 
     	em.persist(book);
-        System.out.println(book.getDescription());
+    	em.flush();
+    	TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);
+    	List<PhysicalBookImpl> l = tq.getResultList();
+    	
+    	
+    	if (l.size() > 0 ) {
+	    	for (PhysicalBookImpl b : l) {
+	    		System.out.println(b.getDescription());
+	    	}
+    	} else {
+    		System.out.println("vide...");
+    	}
+        System.out.println(book.getIdArticle());
     }
+	
+	
 }
