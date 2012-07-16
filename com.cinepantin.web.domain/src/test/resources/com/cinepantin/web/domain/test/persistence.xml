@@ -15,6 +15,7 @@
 		<class>com.cinepantin.web.domain.ArticleImpl</class>
 		<class>com.cinepantin.web.domain.PhysicalBook</class>
 		<class>com.cinepantin.web.domain.PhysicalBookImpl</class>
+		<class>com.cinepantin.web.domain.PhysicalDvdImpl</class>
 	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
 	    <!-- 
 	    <properties>

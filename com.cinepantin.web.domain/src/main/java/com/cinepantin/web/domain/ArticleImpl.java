@@ -31,7 +31,7 @@ public class ArticleImpl implements Article {
 	 */
 	@Id
 	@Column(name="idArticle")
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idArticle;
 	public int getIdArticle() {
 		return this.idArticle;

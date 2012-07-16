@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cinepantin.web.domain.PhysicalBook;
 import com.cinepantin.web.domain.PhysicalBookImpl;
+import com.cinepantin.web.domain.PhysicalDvd;
+import com.cinepantin.web.domain.PhysicalDvdImpl;
 
 
 public class Tester {
@@ -33,11 +35,18 @@ public class Tester {
 		ApplicationContext context = 
 		    	new ClassPathXmlApplicationContext("com/cinepantin/web/domain/test/Spring-ApplicationContext.xml");
 		
+
+    	
+    	PhysicalDvdImpl dvd = new PhysicalDvdImpl();
+    	dvd.setDirector("David Lynch");
+    	em.persist(dvd);
+		
     	 PhysicalBook book = new PhysicalBookImpl("Le nom de la Rose", "Zorro");
 		/*PhysicalBookImpl book = (PhysicalBookImpl) context.getBean(PhysicalBookImpl.class) ;
     	book.setAuthor("Marx");
     	book.setTitle("Le capital");
     	*/
+    	
     	 
     	em.persist(book);
     	em.flush();
