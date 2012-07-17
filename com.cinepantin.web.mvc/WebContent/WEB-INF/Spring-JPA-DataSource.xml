@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+		xmlns="http://www.springframework.org/schema/beans"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+		
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+				http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+				
+				http://www.springframework.org/schema/util 
+				http://www.springframework.org/schema/util/spring-util-2.0.xsd
+				
+				http://www.springframework.org/schema/jdbc 
+				http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+">
+
+	
+	<!--+
+		!
+		!	Utilitaire : gestion de propriétés
+		!	 
+		!	(permet une centralisation de la configuration)
+		!
+		+-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="dbProps"/>
+	</bean>
+	<util:map id="dbProps">
+		<entry key="db.driver" value="com.mysql.jdbc.Driver"/>
+		<entry key="db.jdbcurl" value="jdbc:mysql://localhost/desEssais"/>
+		<entry key="db.username" value="desEssais"/>
+		<entry key="db.password" value="desEssais"/>
+	</util:map>
+	
+	<!--+
+		!
+		!	Connection à la base mySQL
+		!
+		+-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}"/>
+		<property name="url" value="${db.jdbcurl}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+
+</beans>
