@@ -11,10 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import com.cinepantin.web.domain.Article;
 import com.cinepantin.web.domain.PhysicalBook;
-import com.cinepantin.web.domain.PhysicalBookImpl;
 import com.cinepantin.web.domain.PhysicalDvd;
-import com.cinepantin.web.domain.PhysicalDvdImpl;
 
 
 public class Tester {
@@ -37,31 +36,45 @@ public class Tester {
 		
 
     	
-    	PhysicalDvdImpl dvd = new PhysicalDvdImpl();
+    	PhysicalDvd dvd = new PhysicalDvd();
     	dvd.setDirector("David Lynch");
+    	dvd.setTitle("Lost Highway");
     	em.persist(dvd);
 		
-    	 PhysicalBook book = new PhysicalBookImpl("Le nom de la Rose", "Zorro");
+    	 PhysicalBook book = new PhysicalBook("Le nom de la Rose", "Umberto Ecco");
 		/*PhysicalBookImpl book = (PhysicalBookImpl) context.getBean(PhysicalBookImpl.class) ;
     	book.setAuthor("Marx");
     	book.setTitle("Le capital");
     	*/
     	
-    	 
+
+        System.out.println(book.getIdArticle());
     	em.persist(book);
-    	em.flush();
-    	TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);
-    	List<PhysicalBookImpl> l = tq.getResultList();
+    	// em.flush();
+        System.out.println(book.getIdArticle());
     	
+    	
+//    	TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);
+//    	List<PhysicalBookImpl> l = tq.getResultList();
+//    	if (l.size() > 0 ) {
+//	    	for (PhysicalBookImpl b : l) {
+//	    		System.out.println(b.getDescription());
+//	    	}
+//    	} else {
+//    		System.out.println("vide...");
+//    	}
+        
+        
+    	TypedQuery<Article> tq = em.createQuery("select a from Article a", Article.class);
+    	List<Article> l = tq.getResultList();
     	
     	if (l.size() > 0 ) {
-	    	for (PhysicalBookImpl b : l) {
-	    		System.out.println(b.getDescription());
+	    	for (Article a : l) {
+	    		System.out.println(a.getDescription());
 	    	}
     	} else {
     		System.out.println("vide...");
     	}
-        System.out.println(book.getIdArticle());
     }
 	
 	

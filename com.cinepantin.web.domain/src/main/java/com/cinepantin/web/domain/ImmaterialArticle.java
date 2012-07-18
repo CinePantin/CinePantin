@@ -1,5 +1,5 @@
 package com.cinepantin.web.domain;
 
-public interface ImmaterialArticle extends Article {
+public abstract class ImmaterialArticle extends Article {
 
 }

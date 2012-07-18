@@ -12,11 +12,14 @@
 		<!--<provider>org.hibernate.ejb.HibernatePersistence</provider> 
 		<non-jta-data-source>dataSource</non-jta-data-source> -->
 		<class>com.cinepantin.web.domain.Article</class>
-		<class>com.cinepantin.web.domain.ArticleImpl</class>
+		<class>com.cinepantin.web.domain.PhysicalArticle</class>
 		<class>com.cinepantin.web.domain.PhysicalBook</class>
-		<class>com.cinepantin.web.domain.PhysicalBookImpl</class>
-		<class>com.cinepantin.web.domain.PhysicalDvdImpl</class>
+		<class>com.cinepantin.web.domain.PhysicalDvd</class>
 	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+	    <!--
+		<class>com.cinepantin.web.domain.ArticleImpl</class>
+		<class>com.cinepantin.web.domain.PhysicalBookImpl</class>
+	    -->
 	    <!-- 
 	    <properties>
 	      <property name="hibernate.show_sql" value="true"/>

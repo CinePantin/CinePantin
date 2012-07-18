@@ -1,14 +1,43 @@
 package com.cinepantin.web.domain;
 
-public interface PhysicalBook extends PhysicalArticle {
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name="idArticle")
+public class PhysicalBook extends PhysicalArticle {
 	
-	/**
-	 * PhysicalBook(s) must implement a "title" field with accessors.
-	 */
-	public String getTitle();
+	private String title;
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	private String author;
+	public String getAuthor() {
+		return this.author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 	
-	/**
-	 * PhysicalBook(s) must implement an "author" field with accessors.
+	/*
+	 * 	Override methods
 	 */
-	public String getAuthor();
+	@Override
+	public String getDescription() {
+		return this.getTitle() + " - par " + this.getAuthor();
+	}
+	
+	
+	public PhysicalBook() {
+		// empty constructor, as per JPA requirements
+	}
+	public PhysicalBook(String title, String author) {
+		super();
+		this.author = author;
+		this.title = title;
+	}
 }

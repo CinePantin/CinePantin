@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.SlashesInActionNames" value="true"/>
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+	<!--  constant name="struts.patternMatcher" value="regex" / -->
+	
+	<!-- Nos classes Struts sont gérées par Spring -->
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<package name="articles" namespace="catalogue">
+		
+		<action name="browse" method="browse" 
+				class="SpringStrutsArticleBrowse">
+			<result name="success">/ArticlesList.jsp</result>
+		</action>
+		
+		
+	</package>
+
+	<!--
+	<package name="User"  extends="struts-default" namespace="/user">
+	
+		<default-action-ref name="index"></default-action-ref>
+		
+		<action name="index">
+			<result>/user/saisieUser.jsp</result>
+		</action>
+		
+		<action name="ajouter" method="ajout"
+								class="fr.aframp.web.controllers.UserAction" >
+       	    <result name="input">/user/saisieUser.jsp</result>
+       	    <result name="success">/user/viewUser.jsp</result>
+       	    <result name="success2" type="redirectAction">voir/${next}</result>
+       	    <!- -  result name="success" type="redirectAction">view/${name}</result - ->
+       	    <result name="error">/user/error.jsp</result>
+		</action>
+		
+		
+		<action name="voir/{next}" method="browse"
+								class="fr.aframp.web.controllers.UserAction">
+			<result name="success">/user/viewUser.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+	
+	
+	<package name="UserView"  extends="struts-default" namespace="/user/view">
+		<action name="*" method="voir"
+								class="fr.aframp.web.controllers.UserAction">
+			<result name="input">/user/viewUser.jsp?user.name=${1}</result>
+		</action>
+	</package>
+	-->
+	
+</struts>

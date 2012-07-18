@@ -21,15 +21,41 @@
 				http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 ">
 
-
 	<!-- context:spring-configured / -->
 	
 	<!-- Scan for annotation based entities -->
 	<context:component-scan base-package="com.cinepantin.web.domain" />
 	<context:annotation-config />
 
-	<import resource="Spring-JPA-DataSource.xml" />
-	<import resource="Spring-Apache-Tiles.xml" />
+	<!--+
+		!
+		!	Utilitaire : gestion de propriétés
+		!	 
+		!	(permet une centralisation de la configuration)
+		!
+		+-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="dbProps"/>
+	</bean>
+	<util:map id="dbProps">
+		<entry key="db.driver" value="com.mysql.jdbc.Driver"/>
+		<entry key="db.jdbcurl" value="jdbc:mysql://localhost/desEssais"/>
+		<entry key="db.username" value="desEssais"/>
+		<entry key="db.password" value="desEssais"/>
+	</util:map>
+	
+	<!--+
+		!
+		!	Connection à la base mySQL
+		!
+		+-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}"/>
+		<property name="url" value="${db.jdbcurl}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+	
 
 
 
@@ -38,6 +64,9 @@
 		!	Configuration du gestionnaire de persistance
 		!
 		+-->
+		
+	<!-- <import resource="Spring-JPA-DataSource.xml" />relative path -->
+	
 	<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 			
@@ -58,16 +87,20 @@
 					!		value="create-drop" means the same as "create" but also drops tables when Hibernate closes; 
 					!		value="validate" makes no changes to the database 
 					+-->
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.show_sql">true</prop>
 	      		<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<!--  prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop -->
 				<!-- prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</prop -->
 			</props>
 		</property>
-		
+		<!-- 
 		<property name="persistenceXmlLocation" 
 				value="com/cinepantin/web/domain/test/persistence.xml"
+		/>
+		 -->
+		<property name="persistenceXmlLocation" 
+				value="META-INF/persistence.xml"
 		/>
 		<property name="persistenceUnitName" value="TestArticlePersistenceUnit" /><!-- définie dans persistence.xml -->
 		<property name="dataSource" ref="dataSource" /><!-- definie dans Spring-JPA-DataSource.xml -->
@@ -95,8 +128,27 @@
 	
 	 -->
 	
-	<!-- Reste à faire gérer notre classe de tests... -->
+	<!-- Reste à faire gérer notre classe de tests...
 	<bean id="testeur" class="com.cinepantin.web.domain.test.Tester">
+	</bean>
+	-->
+	
+
+	<!--+
+		!
+		!	Configuration des classes Struts (MVC)
+		!
+		+-->
+	<!--
+	<bean id="articleService" scope="singleton"
+		class="com.cinepantin.web.domain.ArticleService"
+	/>
+	-->
+	<bean id="SpringStrutsArticleBrowse" scope="prototype"
+        class="com.cinepantin.web.mvc.action.ArticleBrowse">
+        <!-- 
+        <constructor-arg ref="articleService" />
+         -->
 	</bean>
 	
 </beans>
