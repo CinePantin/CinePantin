@@ -21,6 +21,8 @@ public class ArticleBrowse
 {
 	private static final long serialVersionUID = -7561165783871060968L;
 	
+	// TODO: lire http://struts.apache.org/2.0.12/docs/struts-2-spring-2-jpa-ajax.html
+	
 	/** STRUTS model, Spring-injected **/
 	@Autowired
 	private Article model;
