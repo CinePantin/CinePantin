@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import com.cinepantin.web.domain.Article;
-import com.cinepantin.web.domain.PhysicalBookImpl;
+import com.cinepantin.web.domain.PhysicalBook;
 
 public class ArticleBrowse 
 		extends ActionSupport
@@ -46,11 +46,11 @@ public class ArticleBrowse
 	 * @return
 	 */
 	public String browse() {
-		TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);
-    	List<PhysicalBookImpl> l = tq.getResultList();
+		TypedQuery<PhysicalBook> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBook.class);
+    	List<PhysicalBook> l = tq.getResultList();
     	
     	if (l.size() > 0 ) {
-	    	for (PhysicalBookImpl b : l) {
+	    	for (PhysicalBook b : l) {
 	    		System.out.println(b.getDescription());
 	    	}
     	} else {
