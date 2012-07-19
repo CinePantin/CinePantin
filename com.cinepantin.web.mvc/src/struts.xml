@@ -12,10 +12,15 @@
 	<!-- Nos classes Struts sont gérées par Spring -->
 	<constant name="struts.objectFactory" value="spring" />
 	
-	<package name="articles" namespace="catalogue">
+	<!-- On veut bien un peu d'aide pendant le développement... -->
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="articles" namespace="/catalogue"
+		extends="struts-default">
 		
-		<action name="browse" method="browse" 
-				class="SpringStrutsArticleBrowse">
+		<action name="list" method="list" 
+				class="SpringStrutsArticleAction">
+			<result>/ArticlesList.jsp</result>
 			<result name="success">/ArticlesList.jsp</result>
 		</action>
 		

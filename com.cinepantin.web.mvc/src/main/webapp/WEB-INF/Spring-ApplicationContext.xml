@@ -87,18 +87,13 @@
 					!		value="create-drop" means the same as "create" but also drops tables when Hibernate closes; 
 					!		value="validate" makes no changes to the database 
 					+-->
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 				<prop key="hibernate.show_sql">true</prop>
 	      		<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<!--  prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop -->
 				<!-- prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</prop -->
 			</props>
 		</property>
-		<!-- 
-		<property name="persistenceXmlLocation" 
-				value="com/cinepantin/web/domain/test/persistence.xml"
-		/>
-		 -->
 		<property name="persistenceXmlLocation" 
 				value="META-INF/persistence.xml"
 		/>
@@ -119,20 +114,6 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	<!-- 
-	
-		<class>com.cinepantin.web.domain.Article</class>
-		<class>com.cinepantin.web.domain.ArticleImpl</class>
-		<class>com.cinepantin.web.domain.PhysicalBook</class>
-		<class>com.cinepantin.web.domain.PhysicalBookImpl</class>
-	
-	 -->
-	
-	<!-- Reste à faire gérer notre classe de tests...
-	<bean id="testeur" class="com.cinepantin.web.domain.test.Tester">
-	</bean>
-	-->
-	
 
 	<!--+
 		!
@@ -144,8 +125,8 @@
 		class="com.cinepantin.web.domain.ArticleService"
 	/>
 	-->
-	<bean id="SpringStrutsArticleBrowse" scope="prototype"
-        class="com.cinepantin.web.mvc.action.ArticleBrowse">
+	<bean id="SpringStrutsArticleAction" scope="prototype"
+        class="com.cinepantin.web.mvc.action.ArticleBrowse" >
         <!-- 
         <constructor-arg ref="articleService" />
          -->
