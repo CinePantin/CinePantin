@@ -3,6 +3,9 @@
   <groupId>com.cinepantin</groupId>
   <artifactId>web.mvc</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Avoids things like: [WARNING] Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent! -->
+  </properties>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -47,18 +50,28 @@
   		<artifactId>struts2-spring-plugin</artifactId>
   		<version>2.3.4</version>
   	</dependency>
-  	<!-- 
+  	<dependency>
+  		<groupId>org.apache.struts</groupId>
+  		<artifactId>struts2-tiles-plugin</artifactId>
+  		<version>2.3.4</version>
+  	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc-struts</artifactId>
   		<version>2.5.6.SEC03</version>
   	</dependency>
+  	<!-- 
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring</artifactId>
   		<version>2.5.6.SEC03</version>
   	</dependency>
   	-->
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>jstl</artifactId>
+  		<version>1.2</version>
+  	</dependency>
   </dependencies>
   <packaging>war</packaging>
   

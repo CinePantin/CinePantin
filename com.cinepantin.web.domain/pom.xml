@@ -18,6 +18,7 @@
   
   
   <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Avoids things like: [WARNING] Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent! -->
     <hibernate.version>3.5.1-Final</hibernate.version>
     <!-- hibernate 3.5.1-Final => slf4j-api 1.5.8 -->
     <!-- hibernate 4.1.4.Final => slf4j-api 1.6.6 -->
