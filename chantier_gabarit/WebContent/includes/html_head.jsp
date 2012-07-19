@@ -2,4 +2,5 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 		<c:url var="cssLayoutHref" value="/res/css/layout.css" />
-		<link type="text/css" rel="stylesheet" href="${cssLayoutHref}" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />	
+	
