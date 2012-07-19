@@ -15,7 +15,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 					length=31
 )
 @PrimaryKeyJoinColumn(name="idArticle")
-public abstract class PhysicalArticle extends Article {
+public class PhysicalArticle extends Article {
 	
 	private int stockQuantity;
 	public int getStockQuantity() {

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.cinepantin.web.domain.test.TxTva;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(
@@ -18,6 +20,8 @@ import javax.persistence.InheritanceType;
 )
 public abstract class Article {
 
+	private TxTva txTva2;
+	private TxTva txTva;
 	/**
 	 * Articles MUST implement an "idArticle" field with accessors.
 	 * That field MUST be anotated "@Id" (javax.persistence API) 
@@ -32,4 +36,9 @@ public abstract class Article {
 	// @Column(name="ShortDescription", insertable=true, updatable=true, table="Articles")
 	public abstract String getDescription();
 	// public void setDescription(String description);
+
+	public Article(TxTva txTva3) {
+		txTva2 = txTva3;
+		
+	}
 }
