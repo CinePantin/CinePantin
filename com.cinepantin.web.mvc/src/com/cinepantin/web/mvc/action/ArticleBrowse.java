@@ -59,7 +59,10 @@ public class ArticleBrowse
     		System.out.println("vide...");
     	}
 		//TODO: should check (this.user == null) here and return ERROR/SUCCESS
-		return Action.SUCCESS;
+		// return Action.SUCCESS;
+    	
+    	
+    	return "success-tiles";
 	}
 	
 }

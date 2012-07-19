@@ -42,4 +42,17 @@
 	</filter-mapping>	
 	
 	
+	<!--+
+		!	Tiles integration for Struts
+		!
+		+-->
+	<context-param>
+		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+		<param-value>/WEB-INF/layouts/layouts.xml,/WEB-INF/controllers/hotels/views.xml</param-value><!--  -->
+	</context-param>
+	<listener>
+		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+	</listener>
+	
+	
 </web-app>

@@ -16,12 +16,17 @@
 	<constant name="struts.devMode" value="true" />
 	
 	<package name="articles" namespace="/catalogue"
-		extends="struts-default">
+		extends="struts-default"><!-- indiquer "tiles-default" pour se passer de la déclaration de result-type -->
+		
+		<result-types>
+  			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+		</result-types>
 		
 		<action name="list" method="list" 
 				class="SpringStrutsArticleAction">
 			<result>/ArticlesList.jsp</result>
 			<result name="success">/ArticlesList.jsp</result>
+  			<result name="success-tiles" type="tiles">standard-layout</result><!-- Apache Tiles definition -->
 		</action>
 		
 		
