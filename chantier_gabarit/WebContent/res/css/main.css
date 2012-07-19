@@ -1,0 +1,85 @@
+body {
+	background-color: silver;
+	margin: auto;
+	padding: auto;
+}
+
+#conteneur {
+	background-color: #fff;
+	width: 980px;
+}
+
+#entete {
+	background-color: silver;
+	width: 980px;
+	height: 70px;
+}
+
+#bloc_logo {
+	width: 200px;
+	height: 70px;
+	float: left;
+	border: none;
+	background-color: orange;
+}
+
+#bloc_right_topnav {
+
+	background: silver url('../images/...png') right top no-repeat;
+	float: left;
+}
+
+#content {
+	background-color: #fff;
+	width: 980px;
+	height: 80%;
+}
+
+#top_nav {
+	background-color: pink;
+	width: 980px;
+	height: 70px;
+}
+
+#principale {
+	width: 980px;
+	float: left;
+}
+
+#gauche {
+	width: 198px;
+	height: 80%;
+	background-color: #cccccc;
+	float: left;
+}
+
+#centre {
+	width: 536px;
+	background-color: blue;
+	float: left;
+}
+
+#droite {
+	width: 246px;
+	height: 80%;
+	background-color: #cccccc;
+	float: left;
+}
+
+#footer {
+	width: 980px;
+	height: 100px;
+	background-color: black;
+	clear: left;
+	color: #fff;
+}
+
+/*Mise en page */
+
+#conteneur h1{
+	color:#336666;	
+	font-weight:normal;
+	display:inline;
+	font-family:arial,sans serif;
+}
+
