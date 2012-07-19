@@ -17,7 +17,7 @@ import com.cinepantin.web.domain.test.TxTva;
 					length=31
 )
 @PrimaryKeyJoinColumn(name="idArticle")
-public abstract class PhysicalArticle extends Article {
+public class PhysicalArticle extends Article {
 	
 	public PhysicalArticle() {
 	}
