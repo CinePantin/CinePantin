@@ -7,6 +7,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import com.cinepantin.web.domain.test.TxTva;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(
@@ -17,6 +19,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name="idArticle")
 public abstract class PhysicalArticle extends Article {
 	
+	public PhysicalArticle() {
+	}
 	private int stockQuantity;
 	public int getStockQuantity() {
 		return stockQuantity;

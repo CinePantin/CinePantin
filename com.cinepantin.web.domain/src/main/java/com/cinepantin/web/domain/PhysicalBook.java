@@ -35,6 +35,7 @@ public class PhysicalBook extends PhysicalArticle {
 	public PhysicalBook() {
 		// empty constructor, as per JPA requirements
 	}
+	
 	public PhysicalBook(String title, String author) {
 		super();
 		this.author = author;

@@ -1,107 +1,149 @@
 <uml>
    <greenVersion="30500"/>
    <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ArticleImpl.java[ArticleImpl"/>
-      <height="132"/>
-      <width="138"/>
-      <x="527"/>
-      <y="18"/>
-   </type>
-   <type>
       <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
-      <height="85"/>
-      <width="168"/>
-      <x="234"/>
-      <y="32"/>
+      <height="129"/>
+      <width="240"/>
+      <x="579"/>
+      <y="6"/>
    </type>
    <type>
       <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticle.java[PhysicalArticle"/>
-      <height="49"/>
-      <width="137"/>
-      <x="256"/>
-      <y="157"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticleImpl.java[PhysicalArticleImpl"/>
-      <height="120"/>
-      <width="130"/>
-      <x="532"/>
-      <y="171"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="731"/>
+      <y="192"/>
    </type>
    <type>
       <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ImmaterialArticle.java[ImmaterialArticle"/>
-      <height="45"/>
-      <width="137"/>
-      <x="56"/>
-      <y="157"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="457"/>
+      <y="206"/>
    </type>
    <type>
       <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBook.java[PhysicalBook"/>
-      <height="72"/>
-      <width="144"/>
-      <x="23"/>
-      <y="376"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBookImpl.java[PhysicalBookImpl"/>
-      <height="181"/>
-      <width="163"/>
-      <x="585"/>
-      <y="395"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="540"/>
+      <y="333"/>
    </type>
    <type>
       <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvd.java[PhysicalDvd"/>
-      <height="47"/>
-      <width="149"/>
-      <x="253"/>
-      <y="275"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvdImpl.java[PhysicalDvdImpl"/>
       <height="-1"/>
       <width="-1"/>
-      <x="433"/>
-      <y="339"/>
+      <x="804"/>
+      <y="355"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/test\/java<com.cinepantin.web.domain.test{TxTva.java[TxTva"/>
+      <height="85"/>
+      <width="146"/>
+      <x="866"/>
+      <y="16"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Panier.java[Panier"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="243"/>
+      <y="8"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PanierUser.java[PanierUser"/>
+      <height="72"/>
+      <width="224"/>
+      <x="265"/>
+      <y="97"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Commande.java[Commande"/>
+      <height="99"/>
+      <width="156"/>
+      <x="202"/>
+      <y="231"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Adresse.java[Adresse"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="281"/>
+      <y="355"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Panier.java[Panier"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{AdresseDefaut.java[AdresseDefaut"/>
+      <height="83"/>
+      <width="202"/>
+      <x="539"/>
+      <y="566"/>
    </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticleImpl.java[PhysicalArticleImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ArticleImpl.java[ArticleImpl"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBook.java[PhysicalBook"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticle.java[PhysicalArticle"/>
       <bendpoints>
       </bendpoints>
    </relationship>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Client.java[Client"/>
+      <height="79"/>
+      <width="126"/>
+      <x="21"/>
+      <y="249"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Administrateur.java[Administrateur"/>
+      <height="56"/>
+      <width="87"/>
+      <x="44"/>
+      <y="397"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Visiteur.java[Visiteur"/>
+      <height="57"/>
+      <width="144"/>
+      <x="14"/>
+      <y="6"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Utilisateur.java[Utilisateur"/>
+      <height="80"/>
+      <width="154"/>
+      <x="9"/>
+      <y="109"/>
+   </type>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticleImpl.java[PhysicalArticleImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Visiteur.java[Visiteur"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Utilisateur.java[Utilisateur"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ImmaterialArticle.java[ImmaterialArticle"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Panier.java[Panier"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PanierUser.java[PanierUser"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBookImpl.java[PhysicalBookImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBook.java[PhysicalBook"/>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Visiteur.java[Visiteur"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Panier.java[Panier"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvd.java[PhysicalDvd"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticle.java[PhysicalArticle"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ArticleImpl.java[ArticleImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
+      <targetType="=com.cinepantin.web.domain/src\/test\/java<com.cinepantin.web.domain.test{TxTva.java[TxTva"/>
       <bendpoints>
       </bendpoints>
    </relationship>
@@ -114,29 +156,57 @@
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBookImpl.java[PhysicalBookImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticleImpl.java[PhysicalArticleImpl"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PanierUser.java[PanierUser"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Commande.java[Commande"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Adresse.java[Adresse"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PanierUser.java[PanierUser"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PanierUser.java[PanierUser"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Adresse.java[Adresse"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalBook.java[PhysicalBook"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Client.java[Client"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Administrateur.java[Administrateur"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvdImpl.java[PhysicalDvdImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalArticleImpl.java[PhysicalArticleImpl"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Utilisateur.java[Utilisateur"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Client.java[Client"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.realization.RealizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvdImpl.java[PhysicalDvdImpl"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{PhysicalDvd.java[PhysicalDvd"/>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{ImmaterialArticle.java[ImmaterialArticle"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Article.java[Article"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Client.java[Client"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Commande.java[Commande"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{Adresse.java[Adresse"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.web.domain{AdresseDefaut.java[AdresseDefaut"/>
       <bendpoints>
       </bendpoints>
    </relationship>
