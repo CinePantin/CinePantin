@@ -24,7 +24,7 @@
 	<!-- context:spring-configured / -->
 	
 	<!-- Scan for annotation based entities -->
-	<context:component-scan base-package="com.cinepantin.web.domain" />
+	<context:component-scan base-package="com.cinepantin.shop.domain" />
 	<context:annotation-config />
 
 	<!--+
@@ -122,7 +122,7 @@
 		+-->
 	<!--
 	<bean id="articleService" scope="singleton"
-		class="com.cinepantin.web.domain.ArticleService"
+		class="com.cinepantin.shop.domain.ArticleService"
 	/>
 	-->
 	<bean id="SpringStrutsArticleAction" scope="prototype"

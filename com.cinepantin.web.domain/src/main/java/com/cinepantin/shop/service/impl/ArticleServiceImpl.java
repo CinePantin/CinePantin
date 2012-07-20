@@ -8,8 +8,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cinepantin.shop.domain.Article;
 import com.cinepantin.shop.service.ArticleService;
-import com.cinepantin.web.domain.Article;
 
 @Transactional
 public class ArticleServiceImpl<A extends Article> implements ArticleService<A> {

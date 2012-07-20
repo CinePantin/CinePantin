@@ -15,11 +15,15 @@
 		<class>com.cinepantin.shop.domain.PhysicalArticle</class>
 		<class>com.cinepantin.shop.domain.PhysicalBook</class>
 		<class>com.cinepantin.shop.domain.PhysicalDvd</class>
-	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
-	    <!--
+		<!-- 
+		
 		<class>com.cinepantin.shop.domain.ArticleImpl</class>
+		<class>com.cinepantin.shop.domain.PhysicalArticleImpl</class>
 		<class>com.cinepantin.shop.domain.PhysicalBookImpl</class>
-	    -->
+		<class>com.cinepantin.shop.domain.PhysicalDvdImpl</class>
+		
+		 -->
+	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
 	    <!-- 
 	    <properties>
 	      <property name="hibernate.show_sql" value="true"/>

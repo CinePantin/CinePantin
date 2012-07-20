@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.cinepantin.web.domain.PhysicalBook;
+import com.cinepantin.shop.domain.PhysicalBook;
 
 public class ArticleBrowse 
 		extends ActionSupport

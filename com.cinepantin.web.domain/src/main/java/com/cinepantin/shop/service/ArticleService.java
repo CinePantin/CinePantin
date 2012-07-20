@@ -2,7 +2,7 @@ package com.cinepantin.shop.service;
 
 import java.util.List;
 
-import com.cinepantin.web.domain.Article;
+import com.cinepantin.shop.domain.Article;
 
 public interface ArticleService<A extends Article> {
 
