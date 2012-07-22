@@ -12,7 +12,9 @@ import com.cinepantin.shop.domain.Article;
 import com.cinepantin.shop.service.ArticleService;
 
 @Transactional
-public class ArticleServiceImpl<A extends Article> implements ArticleService<A> {
+public class ArticleServiceImpl<A extends Article> 
+  implements ArticleService<A> 
+{
 
 	private Class<A> articleClass;
 	//private A type;

@@ -9,7 +9,7 @@ public class Test {
     {
 
 		ApplicationContext context = 
-		    	new ClassPathXmlApplicationContext("com/cinepantin/web/domain/test/Spring-ApplicationContext.xml");
+		    	new ClassPathXmlApplicationContext("com/cinepantin/shop/domain/test/Spring-ApplicationContext.xml");
  
     	
     	Tester t = (Tester) context.getBean("testeur");

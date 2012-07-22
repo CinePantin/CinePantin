@@ -8,12 +8,31 @@
 	
 	<!-- Layout -->
 	<definition name="standard-layout" template="/WEB-INF/layouts/standard.jsp">
+		
 		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp" />
 		<put-attribute name="navigation" value="/WEB-INF/layouts/navigation.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
 		
-		<put-attribute name="title" value="Salut les (Struts + Tiles) MVCopines" />
-		<put-attribute name="body" value="(Rock'n'Roll ;-))" />
+		<!--+ 
+			!	NB: used, but undefined in this template are the following attributes:
+			!
+			!		- title
+			!		- body
+			!
+			!	It is the views responsibility to define these...
+			!
+			+-->
+		
+		<put-list-attribute name="breadcrumb">
+			<!-- 
+			<add-attribute value="/tiles/banner.jsp" />
+			<add-attribute value="/tiles/common_menu.jsp" />
+			<add-attribute value="/tiles/credits.jsp" />
+			 -->
+			<item link="/" value="Home" tooltip="CinePantin homepage"></item>
+			<item link="/catalogue/list/" value="Catalog" tooltip="CinePantin homepage"></item>
+		</put-list-attribute>
+		
 	</definition>
 	
 </tiles-definitions>

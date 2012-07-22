@@ -13,13 +13,10 @@
 		<non-jta-data-source>dataSource</non-jta-data-source> -->
 		<class>com.cinepantin.shop.domain.Article</class>
 		<class>com.cinepantin.shop.domain.PhysicalArticle</class>
-		<class>com.cinepantin.shop.domain.PhysicalBook</class>
-		<class>com.cinepantin.shop.domain.PhysicalDvd</class>
+		<class>com.cinepantin.shop.domain.Book</class>
+		<class>com.cinepantin.shop.domain.Dvd</class>
+		<class>com.cinepantin.shop.domain.VatRate</class>
 	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
-	    <!--
-		<class>com.cinepantin.shop.domain.ArticleImpl</class>
-		<class>com.cinepantin.shop.domain.PhysicalBookImpl</class>
-	    -->
 	    <!-- 
 	    <properties>
 	      <property name="hibernate.show_sql" value="true"/>

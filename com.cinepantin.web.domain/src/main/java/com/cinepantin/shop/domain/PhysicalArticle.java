@@ -1,26 +1,19 @@
 package com.cinepantin.shop.domain;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
+import javax.persistence.Basic;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.FetchType;
 
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(
-					discriminatorType=DiscriminatorType.STRING,
-					name="instanceOf",
-					length=31
-)
-@PrimaryKeyJoinColumn(name="idArticle")
+@DiscriminatorValue(value="PhysicalArticle")
 public class PhysicalArticle extends Article {
 	
 	public PhysicalArticle() {
 	}
 	private int stockQuantity;
+	@Basic(fetch=FetchType.LAZY)
 	public int getStockQuantity() {
 		return stockQuantity;
 	}

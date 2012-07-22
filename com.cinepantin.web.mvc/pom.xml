@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.cinepantin</groupId>
-  <artifactId>web.mvc</artifactId>
+  <artifactId>com.cinepantin.web.mvc</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Avoids things like: [WARNING] Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent! -->
@@ -35,6 +35,8 @@
         <configuration>
         	<port>8081</port>
         	<tomcatConfigurationFilesDirectory>/Users/alain/bin/apache-tomcat-7.0.29/conf/</tomcatConfigurationFilesDirectory>
+       		<!-- <warFile>${project.build.directory}/cinepantin.war</warFile>  -->
+       		<!-- ${project.build.directory}/${project.build.finalName}.war -->
         </configuration>
       </plugin>
     </plugins>
@@ -42,7 +44,7 @@
   <dependencies>
   	<dependency>
   		<groupId>com.cinepantin</groupId>
-  		<artifactId>domain</artifactId>
+  		<artifactId>com.cinepantin.shop.domain</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	<dependency>

@@ -5,14 +5,14 @@
   <!-- 
   <parent>
     <groupId>com.cinepantin</groupId>
-    <artifactId>com.cinepantin.web</artifactId>
+    <artifactId>com.cinepantin.web.mvc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  -->
+   -->
   <groupId>com.cinepantin</groupId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <artifactId>domain</artifactId>
+  <artifactId>com.cinepantin.shop.domain</artifactId>
   <name>Domain module</name>
   <description>Les classes métier</description>
   

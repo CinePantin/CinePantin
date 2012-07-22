@@ -64,7 +64,7 @@
 		</property>
 		
 		<property name="persistenceXmlLocation" 
-				value="com/cinepantin/web/domain/test/persistence.xml"
+				value="com/cinepantin/shop/domain/test/persistence.xml"
 		/>
 		<property name="persistenceUnitName" value="TestArticlePersistenceUnit" /><!-- définie dans persistence.xml -->
 		<property name="dataSource" ref="dataSource" /><!-- definie dans Spring-JPA-DataSource.xml -->
@@ -83,25 +83,39 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	<!-- 
 	
-		<class>com.cinepantin.shop.domain.Article</class>
-		<class>com.cinepantin.shop.domain.ArticleImpl</class>
-		<class>com.cinepantin.shop.domain.PhysicalBook</class>
-		<class>com.cinepantin.shop.domain.PhysicalBookImpl</class>
 	
-	 -->
 	
-	<!-- Reste à faire gérer notre classe de tests... -->
+	<!--+
+		!
+		!	Nos beans (test/main + Services + DAO)
+		!
+		+-->
 	<bean id="testeur" class="com.cinepantin.shop.domain.test.Tester">
 		<!-- constructor-arg ref= "BookArticleService"/ -->
 	</bean>
 	
-	<bean id="PhysicalBookArticleService" class="com.cinepantin.shop.service.impl.ArticleServiceImpl" scope="prototype">
-		<constructor-arg ref="Article" />
+	<bean id="AnyArticleService" class="com.cinepantin.shop.service.impl.ArticleServiceImpl" scope="prototype">
+		<constructor-arg ref="Article" /><!-- passing along the parameterized type of this service instance -->
 	</bean>
 	
+	<bean id="BookService" class="com.cinepantin.shop.service.impl.BookServiceImpl" scope="prototype" />
+	
+	<!--
+	<bean id="BookArticleService" class="com.cinepantin.shop.service.impl.BookServiceImpl" scope="prototype" >
+		<qualifier type="org.springframework.beans.factory.annotation.Qualifier">
+			<attribute key="" value=""/>
+		</qualifier>
+		<constructor-arg ref="Book" /><!- - passing along the parameterized type of this service instance - ->
+	</bean>
+	-->
+	
 	<bean id="Article" class="com.cinepantin.shop.domain.Article" />
-	<bean id="PhysicalBook" class="com.cinepantin.shop.domain.PhysicalBook" />
+	<!-- 
+	<bean id="TxTva" class="com.cinepantin.shop.domain.VatRate" />
+	<bean id="PhysicalArticle" class="com.cinepantin.shop.domain.PhysicalArticle" />
+	-->
+	<bean id="Dvd" class="com.cinepantin.shop.domain.Dvd" />
+	<bean id="Book" class="com.cinepantin.shop.domain.Book" />
 	
 </beans>

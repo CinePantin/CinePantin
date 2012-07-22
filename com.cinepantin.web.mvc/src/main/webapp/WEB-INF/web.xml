@@ -12,6 +12,17 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<!-- syntax isn't OK; 
+			+ wa to define just default.
+			So: @Page directives should ensure propper content-type/encoding anyway...
+	<jsp-config>
+		<jsp-property-group>
+			<description>Forces UTF-8 encoding</description>
+			<default-content-type><![CDATA[text/html; charset=UTF-8]]></default-content-type>
+		</jsp-property-group>
+	</jsp-config>
+	-->
 
 	<!--+
 		!	Chargement de la configuration Spring
@@ -48,7 +59,11 @@
 		+-->
 	<context-param>
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-		<param-value>/WEB-INF/layouts/layouts.xml,/WEB-INF/controllers/hotels/views.xml</param-value><!--  -->
+		<param-value>
+			/WEB-INF/layouts/layouts.xml,
+			/WEB-INF/controllers/hotels/views.xml,
+			/WEB-INF/controllers/articles/views.xml
+		</param-value><!--  -->
 	</context-param>
 	<listener>
 		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>

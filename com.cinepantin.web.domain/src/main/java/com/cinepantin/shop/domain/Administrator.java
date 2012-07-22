@@ -7,12 +7,12 @@ package com.cinepantin.shop.domain;
  * @author STAGIAIRE
  *
  */
-public class Administrateur extends Client {
+public class Administrator extends Customer {
 
 	/**
 	 * 
 	 */
-	public Administrateur() {
+	public Administrator() {
 		// empty
 	}
 

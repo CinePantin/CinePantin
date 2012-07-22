@@ -9,12 +9,41 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	<!--  constant name="struts.patternMatcher" value="regex" / -->
 	
+	
+	
+	<!--+
+		!
+		!	Define some Struts properties
+		!
+		!	Alternatively, these could have been defined in (yet) another file, /WEB-INF/classes/struts.properties
+		!	@see https://cwiki.apache.org/confluence/display/WW/struts.properties
+		!			for properties definitions and default values
+		!
+		+-->
 	<!-- Nos classes Struts sont gérées par Spring -->
 	<constant name="struts.objectFactory" value="spring" />
 	
-	<!-- On veut bien un peu d'aide pendant le développement... -->
-	<constant name="struts.devMode" value="true" />
+	<!-- On veut avoir de jolies URL -->
+	<constant name="struts.action.extension" value=",action" />
 	
+	<!-- Et aussi pouvoir utiliser des slashes et des wildcards -->
+	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	<!-- Example : <action name="*/*" method="{2}" class="actions.{1}"> will match "/foo/edit" or "/foo/save" -->
+	
+	<!-- Et enfin on veut bien un peu d'aide pendant le développement... (FIXME: à supprimer en production) -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.el.throwExceptionOnFailure" value="false" />
+	<constant name="struts.ognl.logMissingProperties" value="false" /><!-- (very verbose)  -->
+	
+	
+	
+	
+	<!--+
+		!
+		!	Main package definition
+		!
+		+-->
 	<package name="articles" namespace="/catalogue"
 		extends="struts-default"><!-- indiquer "tiles-default" pour se passer de la déclaration de result-type -->
 		
@@ -22,11 +51,11 @@
   			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
 		</result-types>
 		
-		<action name="list" method="list" 
+		<action name="list/" method="list2" 
 				class="SpringStrutsArticleAction">
 			<result>/ArticlesList.jsp</result>
 			<result name="success">/ArticlesList.jsp</result>
-  			<result name="success-tiles" type="tiles">standard-layout</result><!-- Apache Tiles definition -->
+  			<result name="success-tiles" type="tiles">articles/index</result><!-- Apache Tiles definition -->
 		</action>
 		
 		
