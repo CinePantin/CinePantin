@@ -11,70 +11,65 @@
 	<persistence-unit name="CinePantinPersistenceUnit">
 		
 		
-		<!-- 
-		<jar-file>../WEB-INF/lib/domain-0.0.1-SNAPSHOT.jar</jar-file>
-		-->
-		
-		
 		
 		<!--+
 			!	Articles module
 			!
 			+-->
 		<class>com.cinepantin.shop.domain.VatRate</class>
-		<!-- It seems these 2 entities are found automagically as "Book" or "Dvd" ancesters
 		<class>com.cinepantin.shop.domain.Article</class>
-		<class>com.cinepantin.shop.domain.PhysicalArticle</class>
-		-->
 		<class>com.cinepantin.shop.domain.Book</class>
 		<class>com.cinepantin.shop.domain.Dvd</class>
-		<!-- 
-		<class>com.cinepantin.shop.domain.ImmateriallArticle</class>
-		-->
+		
 		
 		
 		<!--+
 			!	Users module
 			!
 			+-->
-		<!-- Nota : Visitor is NOT persistent -->
+		<!-- Remember: Visitor is NOT persistent -->
 		<class>com.cinepantin.shop.domain.User</class>
-		<!--
-		<class>com.cinepantin.shop.domain.Customer</class>
+		<!-- 
+		<class>com.cinepantin.shop.domain.Administrator</class>
 		-->
 		
+		
+		
+		<!--+
+			!	Addresses module
+			!
+			+-->
 		<class>com.cinepantin.shop.domain.AddressFields</class>
 		<class>com.cinepantin.shop.domain.RolodexAddressCid</class>
 		<class>com.cinepantin.shop.domain.RolodexAddress</class>
 		<class>com.cinepantin.shop.domain.OrderAddress</class>
 		
-		<!--
-		<class>com.cinepantin.shop.domain.Address2</class>
-		<class>com.cinepantin.shop.domain.AddressBookEntryCompositeId</class>
-		<class>com.cinepantin.shop.domain.AddressBookEntry</class>
-		-->
-		
-		
-		
-		
-		<!-- 
-		<class>com.cinepantin.shop.domain.DefaultAddress</class>
-		<class>com.cinepantin.shop.domain.Administrator</class>
-		-->
-		
 		 
 		
 		<!--+
-			!	Basket module
+			!	Baskets module
 			!
 			+-->
+		<!-- Remember: Basket is NOT persistent -->
+		<!-- 
 		<class>com.cinepantin.shop.domain.Basket</class>
+		-->
 		<class>com.cinepantin.shop.domain.UserBasket</class>
 		<class>com.cinepantin.shop.domain.Order</class>
-		<!-- Nota : Basket is NOT persistent - ->
-		-->
 		
 	    
+	    
+	    
+	    <!--+=======================================+
+	    	!										!
+			!		And now for misc. settings		!
+			!										!
+			+=======================================+-->
+		
+		
+		<!-- 
+		<jar-file>../WEB-INF/lib/domain-0.0.1-SNAPSHOT.jar</jar-file>
+		-->
 		
 		<!-- disregard other classes (TODO: is this needed ?) 
 	    <exclude-unlisted-classes>true</exclude-unlisted-classes>

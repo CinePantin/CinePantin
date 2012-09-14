@@ -26,12 +26,14 @@
 	<!-- Scan for annotation based entities -->
 	<context:annotation-config />
 	<context:component-scan base-package="com.cinepantin.shop.domain" />
-
+	
+	
+	
 	<!--+
 		!
-		!	Utilitaire : gestion de propriétés
+		!	Utility: properties manager
 		!	 
-		!	(permet une centralisation de la configuration)
+		!	(helps with configuration centralization)
 		!
 		+-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -44,9 +46,11 @@
 		<entry key="db.password" value="desEssais"/>
 	</util:map>
 	
+	
+	
 	<!--+
 		!
-		!	Connection à la base mySQL
+		!	mySQL database connection
 		!
 		+-->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -61,11 +65,9 @@
 
 	<!--+
 		!
-		!	Configuration du gestionnaire de persistance
+		!	Persistence manager configuration
 		!
 		+-->
-		
-	<!-- <import resource="Spring-JPA-DataSource.xml" />relative path -->
 	
 	<!--+
 		!
@@ -125,7 +127,7 @@
 					!		value="create-drop" means the same as "create" but also drops tables when Hibernate closes; 
 					!		value="validate" makes no changes to the database 
 					+-->
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.show_sql">true</prop>
 	      		<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<!--  prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop -->
@@ -136,9 +138,9 @@
 		<property name="persistenceXmlLocation" 
 				value="META-INF/persistence.xml"
 		/>
-		<property name="persistenceUnitName" value="CinePantinPersistenceUnit" /><!-- définie dans persistence.xml --> 
+		<property name="persistenceUnitName" value="CinePantinPersistenceUnit" /><!-- as defined in persistence.xml --> 
 		
-		<property name="dataSource" ref="dataSource" /><!-- definie dans Spring-JPA-DataSource.xml -->
+		<property name="dataSource" ref="dataSource" />
 		
 	</bean>
 	
@@ -146,7 +148,7 @@
 	
 	<!--+
 		!
-		!	Configuration du gestionnaire de transactions
+		!	Transaction manager configuration
 		!
 		+-->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -159,7 +161,7 @@
 	
 	<!--+
 		!
-		!	Nos beans (Services + DAO)
+		!	Our very beans (Services + DAO)
 		!
 		+-->
 	
@@ -185,7 +187,7 @@
 
 	<!--+
 		!
-		!	Configuration des classes Struts (MVC)
+		!	Struts (MVC) classes configuration
 		!
 		+-->
 	<!--
@@ -202,7 +204,7 @@
 	
 	<!--+
 		!
-		!	Configuration d'Apache Tiles (pour le V de MVC)
+		!	Apache Tiles (acting as the V in "MVC") configuration
 		!
 		+-->
 	<!-- 

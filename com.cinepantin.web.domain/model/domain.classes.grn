@@ -144,8 +144,8 @@
       <name="=com.cinepantin.web.domain/\/System\/Library\/Java\/JavaVirtualMachines\/1.6.0.jdk\/Contents\/Classes\/classes.jar<java.lang(IllegalAccessError.class[IllegalAccessError"/>
       <height="-1"/>
       <width="-1"/>
-      <x="390"/>
-      <y="540"/>
+      <x="557"/>
+      <y="651"/>
    </type>
    <type>
       <name="=com.cinepantin.web.domain/\/System\/Library\/Java\/JavaVirtualMachines\/1.6.0.jdk\/Contents\/Classes\/classes.jar<java.lang(IllegalArgumentException.class[IllegalArgumentException"/>
@@ -165,30 +165,9 @@
 "/>
       <height="104"/>
       <width="187"/>
-      <x="145"/>
-      <y="608"/>
+      <x="-12"/>
+      <y="614"/>
    </note>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
       <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
@@ -198,22 +177,43 @@
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
-      <targetType="=com.cinepantin.web.domain/\/System\/Library\/Java\/JavaVirtualMachines\/1.6.0.jdk\/Contents\/Classes\/classes.jar<java.lang(IllegalAccessError.class[IllegalAccessError"/>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
       <bendpoints>
       </bendpoints>
    </relationship>
@@ -233,7 +233,7 @@
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
       <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
       <bendpoints>
       </bendpoints>
@@ -247,29 +247,29 @@
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
+      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
-      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
+      <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
+      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
+      <targetType="=com.cinepantin.web.domain/\/System\/Library\/Java\/JavaVirtualMachines\/1.6.0.jdk\/Contents\/Classes\/classes.jar<java.lang(IllegalAccessError.class[IllegalAccessError"/>
       <bendpoints>
       </bendpoints>
    </relationship>
