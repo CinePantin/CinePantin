@@ -37,7 +37,7 @@ public abstract class Basket {
 		}
 		return this.orderLines;
 	}
-	protected void setOrderLines(Map<Article, Integer> orderLines) {
+	public void setOrderLines(Map<Article, Integer> orderLines) { // JPA doesn't allow protected ; should be...
 		this.orderLines = orderLines;
 	}
 	//

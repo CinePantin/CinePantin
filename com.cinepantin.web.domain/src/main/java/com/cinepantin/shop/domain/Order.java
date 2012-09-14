@@ -59,102 +59,125 @@ public class Order
 	// @GeneratedValue(strategy=GenerationType.TABLE, generator="nextOrderId")  // FIXME : won't work, since JPA specs only require its support on @Id fields... too bad
 	
 	/** JPA technical ID */
+	private Integer orderId;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer orderId;
 	public Integer getOrderId() {
 		return orderId;
 	}
-	protected void setOrderId(Integer orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
 	
+//	// Override User to Customer if Customer extends User.
+//	private Integer userId;
+//	/**
+//	 * @return The userId of the {@link User} who passed that order.
+//	 */
+//	@ManyToOne(
+////			targetEntity=User.class
+////			, 
+//			optional=false
+//		)
+//	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
+//	public Integer getUserId() {
+//		return this.userId;
+//	}
+//	public void setUserId(Integer userId) {
+//		this.userId = userId;
+//	}
+	
+	
+
+
 	// Override User to Customer if Customer extends User.
-	private Integer userId;
-	/**
-	 * @return The userId of the {@link User} who passed that order.
-	 */
+	private User user;
 	@ManyToOne(
 //			targetEntity=User.class
 //			, 
 			optional=false
 		)
 	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
-	public Integer getUserId() {
-		return this.userId;
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	
+	
+	
+	
+	
+	//	private Map<Article, Integer> orderLines;
 	/**
 	 * The actual basket contents
 	 */
 	// The following has been greately inspired by the @MapKeyJoinColumn Javadoc
 	@Override
 	@ElementCollection
-	@CollectionTable(name="OrderOrderLine", joinColumns=@JoinColumn(name="orderId")) // TODO: rename this table and the corresponding UserBasket OrderLine table
+	@CollectionTable(name="OrderLine", joinColumns=@JoinColumn(name="orderId"))
 	@MapKeyJoinColumn(name="articleId", referencedColumnName="articleId")
 	@Column(name="quantity")
 	public Map<Article, Integer> getOrderLines() {
-		return super.getOrderLines(); // TODO: check if this (using super) is correct
+		return super.getOrderLines(); //this.orderLineMap;
 	}
 	
 	
 	
 	
-//	/**
-//	 * The address to ship to (the address where the articles are to be delivered).
-//	 * 
-//	 * TODO: check types (shall we use Address and/or OrderAddress, or both, or trans-type?)
-//	 */
-//	private OrderAddress shipToAdress;
-//	@OneToOne(
-//			targetEntity=OrderAddress.class,
-//			optional=false,
-//			fetch=FetchType.LAZY
-//			)
-//	
-////	@JoinColumns(value={
-//////			@JoinColumn(name="userId", referencedColumnName="userId", insertable=true, updatable=false)
-//////			, 
-////			@JoinColumn(name="shipTo_addressId", referencedColumnName="addressId", insertable=true, updatable=false)
-////		}
-////	)
-//	public OrderAddress getShipToAdress() {
-//		return this.shipToAdress;
-//	}
-//	public void setShipToAdress(OrderAddress shipToAdress) {
-//		this.shipToAdress = shipToAdress;
-//	}
+	/**
+	 * The address to ship to (the address where the articles are to be delivered).
+	 * 
+	 * TODO: check types (shall we use Address and/or OrderAddress, or both, or trans-type?)
+	 */
+	private OrderAddress shipToAdress;
+	@OneToOne(
+			targetEntity=OrderAddress.class,
+			optional=false,
+			fetch=FetchType.LAZY
+			)
+	
+//	@JoinColumns(value={
+////			@JoinColumn(name="userId", referencedColumnName="userId", insertable=true, updatable=false)
+////			, 
+//			@JoinColumn(name="shipTo_addressId", referencedColumnName="addressId", insertable=true, updatable=false)
+//		}
+//	)
+	public OrderAddress getShipToAdress() {
+		return this.shipToAdress;
+	}
+	public void setShipToAdress(OrderAddress shipToAdress) {
+		this.shipToAdress = shipToAdress;
+	}
 	
 	
 	
 	
-//	/**
-//	 * The address to bill to (the address where the invoice must be sent)
-//	 * 
-//	 * TODO: check types (shall we use Address and/or OrderAddress, or both, or trans-type?)
-//	 */
-//	private OrderAddress billToAdress;
-//	@OneToOne(
-//			targetEntity=OrderAddress.class,
-//			optional=false,
-//			fetch=FetchType.LAZY
-//			)
+	/**
+	 * The address to bill to (the address where the invoice must be sent)
+	 * 
+	 * TODO: check types (shall we use Address and/or OrderAddress, or both, or trans-type?)
+	 */
+	private OrderAddress billToAdress;
+	@OneToOne(
+			targetEntity=OrderAddress.class,
+			optional=false,
+			fetch=FetchType.LAZY
+			)
 //	@JoinColumns(value={
 //			@JoinColumn(name="userId", referencedColumnName="userId", insertable=true, updatable=false)
 //			, @JoinColumn(name="billTo_addressId", referencedColumnName="addressId", insertable=true, updatable=false)
 //		}
 //	)
-//	public OrderAddress getBillToAdress() {
-//		return this.billToAdress;
-//	}
-//	public void setBillToAdress(OrderAddress billToAdress) {
-//		this.billToAdress = billToAdress;
-//	}
+	public OrderAddress getBillToAdress() {
+		return this.billToAdress;
+	}
+	public void setBillToAdress(OrderAddress billToAdress) {
+		this.billToAdress = billToAdress;
+	}
 	
 	
 	
@@ -170,7 +193,7 @@ public class Order
 	public Date getPaiedDate() {
 		return paiedDate;
 	}
-	protected void setPaiedDate(Date paiedDate) {
+	public void setPaiedDate(Date paiedDate) {
 		if (this.paiedDate == null) {
 			this.paiedDate = paiedDate;
 		} else {

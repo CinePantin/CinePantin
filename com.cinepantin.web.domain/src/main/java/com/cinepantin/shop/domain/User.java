@@ -100,7 +100,8 @@ public class User
 	
 	private List<Order> orders;
 	@OneToMany(
-			mappedBy="userId"
+			// mappedBy="userId"
+			mappedBy="user"
 	)
 	public List<Order> getOrders() {
 		return this.orders;

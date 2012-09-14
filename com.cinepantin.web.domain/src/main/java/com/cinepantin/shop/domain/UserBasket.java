@@ -43,9 +43,9 @@ import javax.persistence.Table;
 public class UserBasket 
 			extends Basket 
 {
-
-
-
+	
+	
+	
 	/** JPA technical identifier (PK) **/
 	private Integer basketId;
 	@Id

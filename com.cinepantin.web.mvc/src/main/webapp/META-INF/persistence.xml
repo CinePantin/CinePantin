@@ -68,6 +68,7 @@
 			!	Basket module
 			!
 			+-->
+		<class>com.cinepantin.shop.domain.Basket</class>
 		<class>com.cinepantin.shop.domain.UserBasket</class>
 		<class>com.cinepantin.shop.domain.Order</class>
 		<!-- Nota : Basket is NOT persistent - ->
