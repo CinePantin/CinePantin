@@ -38,7 +38,7 @@ public class ArticleBrowse
 	*/
 	
 	/** Spring-injected EntityManager **/
-	@PersistenceContext(unitName="TestArticlePersistenceUnit")
+	@PersistenceContext(unitName="CinePantinPersistenceUnit")
 	private EntityManager em;
     public EntityManager getEm() {
 		return em;

@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,21 +19,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Article")
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="DISC", discriminatorType=DiscriminatorType.STRING, length=20) // Ignored by Hibernate... 
+@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING, length=20) // Ignored by Hibernate when JOINED inheritance is used... 
 public class Article {
 
-	private int idArticle;
+	private Integer articleId;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getIdArticle()  {
-		return this.idArticle;
+	public Integer getArticleId()  {
+		return this.articleId;
 	}
-	protected void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
+	protected void setArticleId(Integer articleId) {
+		this.articleId = articleId;
 	}
 	
 	private VatRate vatRate;
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="vatId")
 	public VatRate getVatRate() {
 		return this.vatRate;
 	}

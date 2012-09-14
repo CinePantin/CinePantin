@@ -16,6 +16,7 @@ import com.cinepantin.shop.domain.Article;
 import com.cinepantin.shop.domain.Book;
 import com.cinepantin.shop.domain.Dvd;
 import com.cinepantin.shop.domain.VatRate;
+import com.cinepantin.shop.domain.AFAC.OrderLine;
 import com.cinepantin.shop.service.ArticleService;
 import com.cinepantin.shop.service.BookService;
 
@@ -82,11 +83,17 @@ public class Tester {
     	book.setTitle("Le capital");
     	*/
     	
+    	 OrderLine uol = new OrderLine();
+    	 uol.setArticle(book);
+    	 uol.setQuantity(1);
+    	 em.persist(uol);
+    	 System.out.println("Save uol #" + ((OrderLine)uol).getOrderLineId());
+    	
 
-        System.out.println(book.getIdArticle());
+        System.out.println(book.getArticleId());
     	em.persist(book);
     	// em.flush();
-        System.out.println(book.getIdArticle());
+        System.out.println(book.getArticleId());
     	
     	
 //    	TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);

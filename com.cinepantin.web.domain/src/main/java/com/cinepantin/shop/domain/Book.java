@@ -32,7 +32,7 @@ public class Book extends PhysicalArticle {
 	 */
 	@Override
 	public String getShortDescription() {
-		return "(Livre) " + this.getTitle() + " - auteur : " + this.getAuthor();
+		return this.getTitle() + " - " + this.getAuthor();
 	}
 	
 	

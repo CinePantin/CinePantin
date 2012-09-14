@@ -4,10 +4,6 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
-	<constant name="struts.enable.SlashesInActionNames" value="true"/>
-	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
-	<!--  constant name="struts.patternMatcher" value="regex" / -->
 	
 	
 	
@@ -27,7 +23,7 @@
 	<constant name="struts.action.extension" value=",action" />
 	
 	<!-- Et aussi pouvoir utiliser des slashes et des wildcards -->
-	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<!-- Example : <action name="*/*" method="{2}" class="actions.{1}"> will match "/foo/edit" or "/foo/save" -->
 	
 	<!-- Et enfin on veut bien un peu d'aide pendant le développement... (FIXME: à supprimer en production) -->
@@ -35,13 +31,35 @@
 	<constant name="struts.configuration.xml.reload" value="true" />
 	<constant name="struts.el.throwExceptionOnFailure" value="false" />
 	<constant name="struts.ognl.logMissingProperties" value="false" /><!-- (very verbose)  -->
+
+	<!-- ????? -->
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+	<!--  constant name="struts.patternMatcher" value="regex" / -->
 	
 	
 	
 	
 	<!--+
 		!
-		!	Main package definition
+		!	Home package definition
+		!
+		+-->
+	<package extends="tiles-default" name="home" namespace="/">
+	
+		<default-action-ref name="index"></default-action-ref>
+		
+		<action name="index">
+			<result type="tiles">standard-layout</result>
+		</action>
+		
+	</package>
+	
+	
+	
+	
+	<!--+
+		!
+		!	Catalog package definition
 		!
 		+-->
 	<package name="articles" namespace="/catalogue"

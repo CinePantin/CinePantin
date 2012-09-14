@@ -22,6 +22,8 @@
 			!	It is the views responsibility to define these...
 			!
 			+-->
+		<put-attribute name="title" value="TITLE MUST BE DEFINED IN VIEWS USING THIS LAYOUT!" />
+		<put-attribute name="body" value="BODY MUST BE DEFINED IN VIEWS USING THIS LAYOUT!" />
 		
 		<put-list-attribute name="breadcrumb">
 			<!-- 
@@ -29,8 +31,8 @@
 			<add-attribute value="/tiles/common_menu.jsp" />
 			<add-attribute value="/tiles/credits.jsp" />
 			 -->
-			<item link="/" value="Home" tooltip="CinePantin homepage"></item>
-			<item link="/catalogue/list/" value="Catalog" tooltip="CinePantin homepage"></item>
+			<item link="/"                value="Home"    tooltip="CinePantin homepage"></item>
+			<item link="/catalogue/list/" value="Catalog" tooltip="CinePantin articles"></item>
 		</put-list-attribute>
 		
 	</definition>

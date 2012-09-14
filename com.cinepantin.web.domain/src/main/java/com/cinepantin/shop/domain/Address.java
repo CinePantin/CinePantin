@@ -1,89 +1,80 @@
 package com.cinepantin.shop.domain;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embedded;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
-/**
- * Address (TODO: make Address a Domain Entity)
- *
- */
-public class Address  {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+@MappedSuperclass
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Access(AccessType.PROPERTY)
+public class Address {
 	
-	private String TODO;
+	protected Logger logger = LoggerFactory.getLogger(RolodexAddress.class);
+	
+	
+	
+	public enum Mutability {
+		MUTABLE(true, "Address book addresses can be modified, when they are not used in the user's basket."),
+		MUTABLE_WITH_WARNING_USED_IN_BASKET(true, "User should be warned before modifying an address that is used in his/her basket."),
+		IMMUTABLE(false, "Can't modify an address used in an order.")
+		;
+		
+		private final boolean mutable;
+		public boolean isMutable() {
+			return this.mutable;
+		}
+		
+		private final String details; 
+		public String getDetails() {
+			return this.details;
+		}
+		
+		private Mutability(boolean isMutable, String explaination) {
+			this.mutable = isMutable;
+			this.details = explaination;
+		}
+	}
+	
+	
+	
+	private Mutability mutability;
+	@Transient
+	public Mutability getMutability() {
+		return this.mutability;
+	}
+	@Transient
+	public boolean isMutable() {
+		return (this.getMutability().isMutable());
+	}
+	
 	
 	
 
-	private String complement;
-	public String getComplement() {
-		return complement;
+
+	private AddressFields addressFields;
+	/** An Address holds {@link AddressFields}. */
+	@Embedded
+	public AddressFields getAddressFields() {
+		return this.addressFields;
 	}
-	public void setComplement(String complement) {
-		this.complement = complement;
-	}
-	
-	
-	
-	private int numeroRue;
-	public int getNumeroRue() {
-		return numeroRue;
-	}
-	public void setNumeroRue(int numeroRue) {
-		this.numeroRue = numeroRue;
+	public void setAddressFields(AddressFields addressFields) {
+		this.addressFields =addressFields;
 	}
 	
 	
 	
-	private String rue;
-	public String getRue() {
-		return rue;
-	}
-	public void setRue(String rue) {
-		this.rue = rue;
-	}
 	
 	
-	
-	private String lieuDit;
-	public String getLieuDit() {
-		return lieuDit;
-	}
-	public void setLieuDit(String lieuDit) {
-		this.lieuDit = lieuDit;
-	}
-	
-	
-	
-	private int codePostal;
-	public int getCodePostal() {
-		return codePostal;
-	}
-	public void setCodePostal(int codePostal) {
-		this.codePostal = codePostal;
-	}
-	
-	
-	
-	private String ville;
-	public String getVille() {
-		return ville;
-	}
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
-	
-	
-	
-	private String pays;
-	public String getPays() {
-		return pays;
-	}
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
-	
-	
-	
-	public Address() {
-		// empty JPA constructor
-	}
+	/** JPA empty constructor */
+	public Address() {}
 	
 	
 	

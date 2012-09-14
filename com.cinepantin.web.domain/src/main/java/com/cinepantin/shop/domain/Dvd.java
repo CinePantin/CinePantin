@@ -35,7 +35,7 @@ public class Dvd extends PhysicalArticle {
 	
 	@Override
 	public String getShortDescription() {
-		return "(DVD) " + this.title + " - réalisateur : " + this.director;
+		return this.title + " - " + this.director;
 	}
 	
 }

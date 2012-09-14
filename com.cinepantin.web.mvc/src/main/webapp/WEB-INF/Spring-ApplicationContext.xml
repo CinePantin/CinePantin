@@ -24,8 +24,8 @@
 	<!-- context:spring-configured / -->
 	
 	<!-- Scan for annotation based entities -->
-	<context:component-scan base-package="com.cinepantin.shop.domain" />
 	<context:annotation-config />
+	<context:component-scan base-package="com.cinepantin.shop.domain" />
 
 	<!--+
 		!
@@ -67,6 +67,44 @@
 		
 	<!-- <import resource="Spring-JPA-DataSource.xml" />relative path -->
 	
+	<!--+
+		!
+		!	Get rid of persistence.xml
+		!		@see http://stackoverflow.com/questions/1190518/equinox-osgi-and-jpa-hibernate-finding-entities 
+		!		@see http://static.springsource.org/spring/docs/3.1.1.RELEASE/javadoc-api/org/springframework/orm/hibernate3/annotation/AnnotationSessionFactoryBean.html
+		!
+		+-->
+	<!-- 
+	<bean id="sessionFactory"
+    class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	  <property name="hibernateProperties">
+	    <props>
+	    </props>
+	  </property>
+	  <property name="dataSource" ref="dataSource"/>
+	  <property name="annotatedClasses">
+	    <list>
+	      <value>com.cinepantin.shop.domain.Article</value>
+	      <value>com.cinepantin.shop.domain.VatRate</value>
+	      <value>com.cinepantin.shop.domain.Book</value>
+	      <value>com.cinepantin.shop.domain.Dvd</value>
+	      
+	      <value>com.cinepantin.shop.domain.OrderAddress</value>
+	      <value>com.cinepantin.shop.domain.Basket</value>
+	      <value>com.cinepantin.shop.domain.UserBasket</value>
+	      
+	      <value>com.cinepantin.shop.domain.User</value>
+	      
+	    </list>
+	  </property>
+	  <property name="packagesToScan">
+	    <list>
+	      <value>com.cinepantin.shop.domain</value>
+	    </list>
+	  </property>
+	</bean>
+	-->
+	
 	<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 			
@@ -87,21 +125,22 @@
 					!		value="create-drop" means the same as "create" but also drops tables when Hibernate closes; 
 					!		value="validate" makes no changes to the database 
 					+-->
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 				<prop key="hibernate.show_sql">true</prop>
 	      		<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<!--  prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop -->
 				<!-- prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</prop -->
 			</props>
 		</property>
+		
 		<property name="persistenceXmlLocation" 
 				value="META-INF/persistence.xml"
 		/>
-		<property name="persistenceUnitName" value="TestArticlePersistenceUnit" /><!-- définie dans persistence.xml -->
+		<property name="persistenceUnitName" value="CinePantinPersistenceUnit" /><!-- définie dans persistence.xml --> 
+		
 		<property name="dataSource" ref="dataSource" /><!-- definie dans Spring-JPA-DataSource.xml -->
 		
 	</bean>
-	
 	
 	
 	
@@ -138,6 +177,10 @@
 	<bean id="Dvd" class="com.cinepantin.shop.domain.Dvd" />
 	<bean id="Book" class="com.cinepantin.shop.domain.Book" />
 	
+	<!-- 
+	<bean id="Basket" class="com.cinepantin.shop.domain.Basket" />
+	<bean id="UserBasket" class="com.cinepantin.shop.domain.UserBasket" />
+	-->
 	
 
 	<!--+

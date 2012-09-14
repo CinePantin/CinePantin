@@ -118,4 +118,9 @@
 	<bean id="Dvd" class="com.cinepantin.shop.domain.Dvd" />
 	<bean id="Book" class="com.cinepantin.shop.domain.Book" />
 	
+	<!-- 
+	<bean id="OrderLine" class="com.cinepantin.shop.domain.AFAC.OrderLine" />
+	-->
+	<bean id="UserOrderLine" class="com.cinepantin.shop.domain.UserOrderLine" />
+	
 </beans>

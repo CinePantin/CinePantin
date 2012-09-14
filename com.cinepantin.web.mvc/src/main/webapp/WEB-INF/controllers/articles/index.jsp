@@ -9,15 +9,14 @@
 <s:if test="articles.size gt 0">
 	<table>
 		<s:iterator value="articles" var="article">
-			<tr id="row_<s:property value="article.articleId"/>">
-				<td>
+			<tr id="row_<s:property value="article.articleId"/>" class="<s:property value="#article.getClass().getSimpleName()" />">
+				<%--<td>
 					[
 					<s:if test="#article instanceof com.cinepantin.shop.domain.Book">Book</s:if>
 					<s:elseif test="#article instanceof com.cinepantin.shop.domain.Dvd">Dvd</s:elseif>
 					<s:else>unknown</s:else>
 					]
-					<s:property value="#article.getClass().getSimpleName()" />
-				</td>
+				</td> --%>
 				<td>
 					<s:property value="shortDescription" />
 				</td>

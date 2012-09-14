@@ -10,6 +10,15 @@
 	<definition name="articles/index" extends="standard-layout">
 		<put-attribute name="title" value="Ciné-Pantin : tous nos articles" />
 		<put-attribute name="body" value="/WEB-INF/controllers/articles/index.jsp" />
+		<put-list-attribute name="breadcrumb">
+			<!-- 
+			<add-attribute value="/tiles/banner.jsp" />
+			<add-attribute value="/tiles/common_menu.jsp" />
+			<add-attribute value="/tiles/credits.jsp" />
+			 -->
+			<item link="/"                value="Home"    tooltip="CinePantin homepage"></item>
+			<item link="/catalogue/list/" value="Catalog" tooltip="CinePantin articles"></item>
+		</put-list-attribute>
 	</definition>
 	
 </tiles-definitions>

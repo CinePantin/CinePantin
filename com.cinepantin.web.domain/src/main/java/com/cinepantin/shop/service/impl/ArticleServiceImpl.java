@@ -43,7 +43,7 @@ public class ArticleServiceImpl<A extends Article>
 	}
 
 	public void save(A article) {
-		if (article.getIdArticle() == 0) { // New article
+		if (article.getArticleId() == 0) { // New article
 			em.persist(article);
 		} else {
 			em.merge(article);
