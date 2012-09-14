@@ -70,23 +70,23 @@ public class Order
 	}
 
 	
-//	// Override User to Customer if Customer extends User.
-//	private User user;
-//	/**
-//	 * @return The {@link User} who passed that order.
-//	 */
-//	@ManyToOne(
-////			targetEntity=User.class
-////			, 
-//			optional=false
-//		)
-//	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
-//	public User getUser() {
-//		return user;
-//	}
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	// Override User to Customer if Customer extends User.
+	private Integer userId;
+	/**
+	 * @return The userId of the {@link User} who passed that order.
+	 */
+	@ManyToOne(
+//			targetEntity=User.class
+//			, 
+			optional=false
+		)
+	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
+	public Integer getUserId() {
+		return this.userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	
 	
 	/**

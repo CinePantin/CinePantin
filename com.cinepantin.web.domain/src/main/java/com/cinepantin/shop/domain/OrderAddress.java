@@ -54,7 +54,7 @@ public class OrderAddress extends Address {
 	
 	
 	
-	// TODO: not needed as inherited?
+	// *************     private AddressFields addressFields // IS NOT NEEDED, as it is inherited!    *****************/
 //	private AddressFields addressFields;
 //	@Embedded
 //	public AddressFields getAddressFields() {

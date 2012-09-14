@@ -98,16 +98,16 @@ public class User
 
 	
 	
-//	private List<Order> orders;
-//	@OneToMany(
-//			mappedBy="user"
-//	)
-//	public List<Order> getOrders() {
-//		return this.orders;
-//	}
-//	public void setOrders(List<Order> orders) {
-//		this.orders = orders;
-//	}
+	private List<Order> orders;
+	@OneToMany(
+			mappedBy="userId"
+	)
+	public List<Order> getOrders() {
+		return this.orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 	
 
 	
