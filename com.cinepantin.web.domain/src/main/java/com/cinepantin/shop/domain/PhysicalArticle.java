@@ -1,13 +1,11 @@
 package com.cinepantin.shop.domain;
 
 import javax.persistence.Basic;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.MappedSuperclass;
 
 
-@Entity
-@DiscriminatorValue(value="PhysicalArticle")
+@MappedSuperclass
 public class PhysicalArticle extends Article {
 	
 	public PhysicalArticle() {
