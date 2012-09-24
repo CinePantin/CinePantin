@@ -7,11 +7,11 @@
 <tiles-definitions>
 	
 	<!-- Layout -->
-	<definition name="standard-layout" template="/WEB-INF/layouts/standard.jsp">
+	<definition name="standard-layout" template="/WEB-INF/layouts/standard/standard.jsp">
 		
-		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp" />
-		<put-attribute name="navigation" value="/WEB-INF/layouts/navigation.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layouts/standard/header.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/layouts/standard/navigation.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/standard/footer.jsp" />
 		
 		<!--+ 
 			!	NB: used, but undefined in this template are the following attributes:

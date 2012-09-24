@@ -1,16 +1,10 @@
 package com.cinepantin.shop.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
-
-import com.cinepantin.shop.domain.Address.Mutability;
 
 
 
@@ -21,8 +15,6 @@ import com.cinepantin.shop.domain.Address.Mutability;
  *
  */
 @Entity
-// @Embeddable
-// @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) // TODO: this should not be required...
 public class OrderAddress extends Address {
 	
 	
@@ -40,35 +32,32 @@ public class OrderAddress extends Address {
 	
 	
 	
-	
 	/**
 	 * Addresses used on order (bill-to, ship-to) are <strong>NOT<strong> mutable.
 	 */
 	@Override
-	@Transient // doesn't need to be persisted // TODO: unnecessary (inherited)?
+	@Transient 	// doesn't need to be persisted -- still necessary to be explicitly mentioned, 
+				// even though inherited and already @Transient in @MappedSuperclass Address...
 	public Address.Mutability getMutability() {
 		logger.info("Went into OrderAddress.getMutability()");
 		return Mutability.IMMUTABLE;
-		// }
 	}
-	
-	
-	
-	// *************     private AddressFields addressFields // IS NOT NEEDED, as it is inherited!    *****************/
-//	private AddressFields addressFields;
-//	@Embedded
-//	public AddressFields getAddressFields() {
-//		return addressFields;
-//	}
-//	public void setAddressFields(AddressFields addressFields) {
-//		this.addressFields = addressFields;
-//	}
-	
 	
 	
 	
 	/** JPA empty constructor **/
 	public OrderAddress() {}
+	
+	
+	
+	/**
+	 * Creates an OrderAddress from a RolodexAddress.
+	 * 
+	 * @param rolodexAdress to promote to OrderAddress
+	 */
+	public OrderAddress(RolodexAddress rolodexAdress) {
+		this.setAddressFields(rolodexAdress.getAddressFields());
+	}
 	
 	
 	

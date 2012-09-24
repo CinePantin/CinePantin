@@ -2,12 +2,10 @@ package com.cinepantin.shop.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,28 +16,23 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+
 
 /**
  * UserBasket (Domain Entity).
  * 
- * Belongs to a registered {@link User}. Is promoted to {@link Order} upon basket checkout (pavement).
+ * Belongs to a registered {@link User}. Is promoted to {@link Order} upon basket checkout (payment).
  *
  */
 @Entity
-
-// @Table(name="BasketsAndOrders")
-
-//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING, length=10)
-//@DiscriminatorValue(value="UserBasket")
-
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Table(name="Baskets")
-
 public class UserBasket 
 			extends Basket 
 {
@@ -63,7 +56,10 @@ public class UserBasket
 	/**
 	 * @return The {@link User} this UserBasket belongs to.
 	 */
-	@OneToOne(targetEntity=User.class, optional=false)
+	@OneToOne(
+			targetEntity=User.class
+			, optional=false
+		)
 	@JoinColumn(name="userId")
 	public User getUser() {
 		return user;
@@ -72,45 +68,6 @@ public class UserBasket
 		this.user = user;
 	}
 	
-	
-	
-//	private List<OrderLine> orderLineList;
-//	@OneToMany(
-//			targetEntity=com.cinepantin.shop.domain.AFAC.OrderLine.class, // not necessary : "Defaults to the parameterized type of the collection when defined using generics." (says javadoc) 
-//			// cascade=ALL, // Entity baskets can't be deleted anyway...
-//		    mappedBy="basket", // won't work without...
-//		    fetch=FetchType.LAZY
-//			)
-//	public List<OrderLine> getOrderLineList() {
-//		return this.orderLineList;
-//	}
-//	protected void setOrderLineList(List<OrderLine> orderLineList) {
-//		this.orderLineList = orderLineList;
-//	}
-
-//	// @Override
-////	@ManyToMany(
-////			
-////			//targetEntity=Address1.class,
-////			fetch=FetchType.LAZY
-////			)
-////	@JoinTable(
-////				name="BasketArticle",
-////				joinColumns={@JoinColumn(name="basketId")}, // OK
-////				inverseJoinColumns={@JoinColumn(name="articleId", referencedColumnName="articleId")} // Nok : creates a FOREIGN KEY (articleId) REFERENCES Address1 (addressId);
-////			)
-//	@ElementCollection()
-//	@CollectionTable(
-//	        name="OrderLineMapTable" //,
-////	        joinColumns=
-////	    			{
-////	        			@JoinColumn(name="basketId", referencedColumnName="basketId"),
-////        			}
-//			)
-//	// was (for testing purposes): Map<Article, Address1>
-//	public Map<BasketArticleCompositeIdentifier, BasketArticle> getOrderLineMap() { // FOREIGN KEY (orderLineMap_KEY) REFERENCES Article (articleId);
-//		return this.orderLineMap;
-//	}
 	
 	
 	
@@ -133,16 +90,6 @@ public class UserBasket
 	 * The address to ship to (the address where the articles are to be delivered)
 	 */
 	private RolodexAddress shipToAdress;
-//	@ManyToOne(
-//			targetEntity=AddressBookEntry.class,
-//			optional=true,
-//			fetch=FetchType.LAZY
-//			)
-//	@JoinColumns(value={
-//			@JoinColumn(name="userId", referencedColumnName="userId", insertable=false, updatable=false)
-//			, @JoinColumn(name="shipToEntryName", referencedColumnName="addressBookEntryName", insertable=false, updatable=false)
-//		}
-//	)
 	@OneToOne(
 			targetEntity=RolodexAddress.class,
 			optional=true,
@@ -166,16 +113,6 @@ public class UserBasket
 	 * The address to bill to (the address where the invoice must be sent)
 	 */
 	private RolodexAddress billToAdress;
-//	@ManyToOne(
-//			targetEntity=AddressBookEntry.class,
-//			optional=true,
-//			fetch=FetchType.LAZY
-//			)
-//	@JoinColumns(value={
-//					@JoinColumn(name="userId", referencedColumnName="userId", insertable=false, updatable=false)
-//					, @JoinColumn(name="billToEntryName", referencedColumnName="addressBookEntryName", insertable=false, updatable=false)
-//				}
-//			)
 	@OneToOne(
 			targetEntity=RolodexAddress.class,
 			optional=true,
@@ -196,22 +133,103 @@ public class UserBasket
 	
 	
 	/** JPA empty constructor **/
-	public UserBasket() { // JPA doesn't allow, but should be protected
-		// this.setOrderLines(new HashMap<Article, Integer>()); // TODO: empty me
+	public UserBasket() {}
+	
+	
+	
+	
+	/**
+	 * Creates the UserBasket belonging to a given {@link User}
+	 * @param user to whom the basket will belong
+	 */
+	public UserBasket(User user) {
+		this();
+		this.setUser(user);
 	}
 
 	
 	
-	/** TODO
+	/**
 	 * Creates a {@link UserBasket} promoted from a {@link VisitorBasket}  
-	 * @param visitorBasket
+	 * @param user to whom this basket will belong
+	 * @param visitorBasket to promote to UserBasket
 	 */
-//	public UserBasket(VisitorBasket visitorBasket) {
-//		List<OrderLine> orderLinesListToPromote = visitorBasket.getOrderLineList();
+	public UserBasket(User user, Basket visitorBasket) {
+//		List<OrderLine> orderLinesListToPromote = visitorBasket.getOrderLines();
 //		this.orderLineList = new ArrayList<UserOrderLine>(orderLinesListToPromote.size());
 //		for (OrderLine orderLineToPromote : orderLinesListToPromote) {
 //			this.orderLineList.add(new UserOrderLine(orderLineToPromote));
 //		}
-//	}
+		this(user);
+		this.setOrderLines(visitorBasket.getOrderLines()); // TODO: check if deep copy is needed here.
+	}
 
+	
+	
+	
+	
+	// TODO: move business rule isOrderable() outside DAO object UserBasket...
+	@Transient
+	public boolean isOrderable() {
+		if (this.getUser() == null) { throw new IllegalStateException("UserBasket belongs to no User! Programming error is likely, as a UserBasket should always belong to a User..."); }
+		if (this.getShipToAdress() == null) { return false; }
+		if (this.getBillToAdress() == null) { return false; }
+		if (this.isEmpty()) { 
+			return false; 
+		} else {
+			if (!isOrderableContentsWise()) { return false; }
+		}
+		return true;
+	}
+	
+	
+	@Transient
+	public boolean isOrderableContentsWise() {
+		for (Entry<Article, Integer> orderLine : this.getOrderLines().entrySet()) {
+			Article article = orderLine.getKey();
+			if (article instanceof PhysicalArticle) {
+				Integer orderQuantity = orderLine.getValue();
+				Integer availableQuantity = ((PhysicalArticle) article).getStockQuantity();
+				if (orderQuantity.compareTo( availableQuantity ) < 0) { 
+					return false; // too bad we can't tell what article make us yield false....
+				}
+			} // other article subtypes will require: elseif article instanceof othersubtype...
+			// TODO: think QuantityDependantOrderable interface, with a method like: boolean canSatisfyOrderOf(Integer quantity)
+		}
+		return true;
+	}
+	
+	
+	
+	/**
+	 * Get a Map of Article that can't be ordered, or <code>null</code> if all Articles in UserBasket can be ordered.
+	 * @return If there are unorderable Articles, a <code>Map&lt;Article, Integer&gt;</code> 
+	 * 				where <ul>
+	 * 						<li><code>Article</code> are order members for which order quantity exceeds stocks</li> 
+	 * 						<li><code>Integer</code> is the available stock of said Article.</li>
+	 * 				</ul>
+	 * 				<code>null</code> if all article quantities in order can be satisfied by stock.
+	 */
+	@Transient
+	public Map<Article, Integer> getUnOrderableArticles() {
+		Map<Article, Integer> ret = new HashMap<Article, Integer>(4); 
+		for (Entry<Article, Integer> orderLine : this.getOrderLines().entrySet()) {
+			Article article = orderLine.getKey();
+			if (article instanceof PhysicalArticle) {
+				Integer orderQuantity = orderLine.getValue();
+				Integer availableQuantity = ((PhysicalArticle) article).getStockQuantity();
+				if (orderQuantity.compareTo( availableQuantity ) < 0) { 
+					ret.put(article, availableQuantity);
+				}
+			}
+		}
+		if (ret.size() > 0) {
+			return ret;
+		} else {
+			return null;
+		}
+	}
+	
+	
+	
 }

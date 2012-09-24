@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 @DiscriminatorValue(value="Livre") //Ignored by Hibernate...
 public class Book extends PhysicalArticle {
 	
+	
+	
 	private String title;
 	@Basic(fetch=FetchType.LAZY)
 	public String getTitle() {
@@ -17,7 +19,9 @@ public class Book extends PhysicalArticle {
 	public void setTitle(String title) { // TODO: shouldn't this be made protected ?
 		this.title = title;
 	}
-
+	
+	
+	
 	private String author;
 	@Basic(fetch=FetchType.LAZY)
 	public String getAuthor() {
@@ -27,8 +31,10 @@ public class Book extends PhysicalArticle {
 		this.author = author;
 	}
 	
-	/*
-	 * 	Override methods
+	
+	
+	/**
+	 * Book-aware short description
 	 */
 	@Override
 	public String getShortDescription() {
@@ -36,10 +42,18 @@ public class Book extends PhysicalArticle {
 	}
 	
 	
-	public Book() {
-		// empty constructor, as per JPA requirements
-	}
 	
+	/** JPA empty constructor */
+	public Book() {}
+	
+	
+	
+	/**
+	 * Regular (business) Book constructor.
+	 * @param title		Book title		:-)
+	 * @param author	Book author		;-D
+	 * @param vatRate	Book VAT rate	X-]]
+	 */
 	public Book(String title, String author, VatRate vatRate) {
 		this.author = author;
 		this.title = title;

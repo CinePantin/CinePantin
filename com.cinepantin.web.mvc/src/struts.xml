@@ -78,6 +78,17 @@
 		
 		
 	</package>
+	
+	
+	
+	<package name="testpackage" namespace="/test" extends="tiles-default">
+	
+		<action name="test1" method="test1" class="testSpringStrutsTilesMVC">
+			<result name="success" type="tiles">test1</result>
+		</action>
+	
+	</package>
+	
 
 	<!--
 	<package name="User"  extends="struts-default" namespace="/user">

@@ -4,13 +4,17 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
 
+
 /**
- * A site visitor (plain Domain class, NOT a persistent entity)
+ * A site visitor 
+ * (plain Domain class, NOT a persistent entity - though a @MappedSuperclass)
  *
  */
 @MappedSuperclass
 public class Visitor {
-
+	
+	
+	
 	private Basket basket;
 	/**
 	 * <strong>Warning</strong>: Visitor baskets are <strong>NOT</strong> persisted...
@@ -25,9 +29,11 @@ public class Visitor {
 	protected void setBasket(Basket basket) {
 		this.basket = basket;
 	}
-
+	
+	
+	
 	public Visitor() {
-		// this.basket = new VisitorBasket();
+		this.setBasket(new Basket());
 	}
 
 }

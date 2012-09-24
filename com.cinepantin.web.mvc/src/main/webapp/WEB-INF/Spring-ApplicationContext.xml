@@ -200,6 +200,8 @@
         <constructor-arg ref="AnyArticleService" />
 	</bean>
 	
+	<bean id="testSpringStrutsTilesMVC" scope="prototype" class="tests.test" />
+	
 	
 	
 	<!--+

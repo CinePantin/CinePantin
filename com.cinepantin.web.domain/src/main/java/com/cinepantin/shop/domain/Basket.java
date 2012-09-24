@@ -19,18 +19,27 @@ import javax.persistence.Transient;
  *
  */
 
+
+
 @MappedSuperclass
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Access(AccessType.PROPERTY)
-
-public abstract class Basket {
-
+public class Basket {
+	
+	
+	
+	/** Technical default value for order lines map initial capacity **/
 	protected int ORDERLINE_MAP_INITIAL_CAPACITY = 4;
 	
 	
-	protected Map<Article, Integer> orderLines; // Integer is Article.articleId
-//	public abstract Map<Article, Integer> getOrderLineMap();
-	@Transient
+	
+	
+	/**
+	 * A basket is essentially a set of orderlines, each stating which article is wanted, in what quantity.<br />
+	 * Therefore <strong>orderlines</strong> is a <tt>Map&lt;Article, Integer&gt</tt> (where <tt>Integer</tt> counts quantity)</tt>. 
+	 */
+	protected Map<Article, Integer> orderLines; // Integer is the quantity of articles to be added
+	@Transient // This doesn't define a mapping. It is the child classes responsibility to define the mapping (if mapping is required)
 	public Map<Article, Integer> getOrderLines() {
 		if (this.orderLines == null) {
 			this.orderLines = new HashMap<Article, Integer>(ORDERLINE_MAP_INITIAL_CAPACITY);
@@ -40,44 +49,41 @@ public abstract class Basket {
 	public void setOrderLines(Map<Article, Integer> orderLines) { // JPA doesn't allow protected ; should be...
 		this.orderLines = orderLines;
 	}
-	//
-	// @see @ElementCollection
-	// @see @CollectionTable
-//	/**
-//	 * Baskets can return a List<OL extends OrderLine>
-//	 * @return
-//	 */
-//	@OneToMany(
-//			targetEntity=com.cinepantin.shop.domain.UserOrderLine.class, // not necessary : "Defaults to the parameterized type of the collection when defined using generics." (says javadoc) 
-//			// cascade=ALL, // Entity baskets can't be deleted anyway...
-//            mappedBy="basket", // won't work without...
-//            fetch=FetchType.LAZY
-//			)
-	// @Transient
-
-//	protected List<OrderLine> orderLineList;
-//	public abstract List<OrderLine> getOrderLineList();
-//	protected void setOrderLineList(List<OrderLine> orderLineList) {
-//		this.orderLineList = orderLineList;
-//	}
-
-//	public Basket() {
-//		this.orderLineList = new ArrayList<OrderLine>();
-//	}
-
-
+	
+	
+	
+	/** JPA empty constructor */
+	public Basket() {}
+	
+	
+	
+	
+	/* =============================================================================================
+	 *
+	 *									BASKET OPERATIONS 		("Basket API")
+	 *									
+	 /============================================================================================ */
+	
+	
 	
 	/**
-	 * One can add an Article in a Basket. Synchronized.
-	 * @param article
+	 * One can add 1 (one) Article in a Basket. Synchronized.
+	 * @param article The Article to add to the basket. Assumed quantity is 1 (one).
 	 */
-	@Transient
+	@Transient // This is just a plain method. JPA, please don't try to persist me...
 	public synchronized void addArticle(Article article) {
 		this.modifyArticleQuantity(article, Integer.valueOf( +1 ));
 	}
 	
 	
-	@Transient
+	
+	/**
+	 * One can operate on the Article quantity in a Basket. Synchronized.
+	 * 
+	 * @param article 				The Article whose quantity is to be modifed in the basket.
+	 * @param quantityDifference	The amount (positive or negative) of quantity modification.	
+	 */
+	@Transient // This is just a plain method. JPA, please don't try to persist me...
 	public synchronized void modifyArticleQuantity(Article article, Integer quantityDifference) {
 		
 		// Sanity checks
@@ -93,16 +99,16 @@ public abstract class Basket {
 		if (initialQuantity == null) {
 			initialQuantity = Integer.valueOf(0); // then initial quantity is 0
 		}
-
+		
+		// Computing final quantity
+		Integer finalQuantity = initialQuantity + quantityDifference;
+		
 		// Removing more article than there are in basket?
-		if (initialQuantity.compareTo(Math.abs(quantityDifference)) < 0) {
+		if (finalQuantity.compareTo(Integer.valueOf(0)) < 0) {
 			// FIXME: decide wether or not to throw an exception in this case
 			throw new IllegalArgumentException("Can't set remove <" + Math.abs(quantityDifference) + "> articles from basket, when there are only <" + initialQuantity + "> in given basket.");
 			// alternative : set quantityDifference to -initialQuantity
 		}
-		
-		// Computing final quantity
-		Integer finalQuantity = initialQuantity + quantityDifference;
 		
 		// Unchanged?!
 		if (finalQuantity.equals(initialQuantity)) {
@@ -119,7 +125,7 @@ public abstract class Basket {
 			
 		} else {
 			
-			// Change quantity
+			// Change quantity (creates the article entry in the map if there was none)
 			this.getOrderLines().put(article, finalQuantity);
 		}
 		
@@ -128,9 +134,11 @@ public abstract class Basket {
 	
 	
 	/**
-	 * One can remove an Article from a Basket
+	 * Remove all articles of the given type from the Basket (whatever the previous quantity was).
+	 * 
+	 * @param article	The type of articles to be removed. (i.e. an {@link Article instance})
 	 */
-	@Transient
+	@Transient // This is just a plain method. JPA, please don't try to persist me...
 	public void clearArticle(Article article) {
 		if (article == null) {
 			throw new IllegalArgumentException("Can't remove articles <null> from basket!");
@@ -140,8 +148,29 @@ public abstract class Basket {
 	
 	
 	
+	/**
+	 * Is the basket empty ?
+	 * @return true if empty...
+	 */
+	@Transient
+	public boolean isEmpty() {
+		return this.getOrderLines().isEmpty();
+	}
 	
-	/** JPA empty constructor */
-	public Basket() {}
+	
+	
+	
+	
+	/**
+	 * Makes the basket <strong>empty</strong>. No confirm. Whap!<br />
+	 * Think twice^N before use: there's no CTRL+Z on this one ;-)
+	 */
+	public void clearBasket() {
+		this.getOrderLines().clear();
+	}
+	
+	
+	
+
 	
 }

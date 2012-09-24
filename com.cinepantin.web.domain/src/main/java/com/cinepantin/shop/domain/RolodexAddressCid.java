@@ -10,7 +10,8 @@ import javax.persistence.Embeddable;
 
 
 /**
- * A clustered index for {@link RolodexAddress}
+ * A clustered index <strong>(userId + rolodexEntryName)</strong>
+ * 		for use in {@link RolodexAddress}
  *
  */
 @Embeddable
@@ -29,16 +30,6 @@ public class RolodexAddressCid
 		this.userId = userId;
 	}
 	
-	
-	
-//	private User user;
-//	/** A {@link RolodexAddress} belongs to a {@link User} **/
-//	public User getUser() {
-//		return user;
-//	}
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
 	
 	
 	
@@ -61,7 +52,7 @@ public class RolodexAddressCid
 	
 	
 	
-	/* ========================== hashCode & equals ========================= */
+	/* ========================== hashCode & equals, required on composite IDs ========================= */
 	
 	@Override
 	public int hashCode() {

@@ -7,16 +7,6 @@ public class AddressFields {
 	
 	
 	
-//	private String FriendlyNameEmb;
-//	public String getFriendlyNameEmb() {
-//		return FriendlyNameEmb;
-//	}
-//	public void setFriendlyNameEmb(String friendlyNameEmb) {
-//		FriendlyNameEmb = friendlyNameEmb;
-//	}
-	
-	
-	
 	private String complement;
 	public String getComplement() {
 		return complement;

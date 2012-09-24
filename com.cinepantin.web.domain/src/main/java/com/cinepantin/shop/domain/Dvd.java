@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value="Dvd") //Ignored by Hibernate...
 public class Dvd extends PhysicalArticle {
 	
+	
+	
 	public String director;
 	public String getDirector() {
 		return director;
@@ -14,6 +16,8 @@ public class Dvd extends PhysicalArticle {
 	public void setDirector(String director) { // TODO: shouldn't this be made protected ?
 		this.director = director;
 	}
+	
+	
 	
 	public String title;
 	public String getTitle() {
@@ -23,19 +27,33 @@ public class Dvd extends PhysicalArticle {
 		this.title = title;
 	}
 	
-	public Dvd() {
-		// public, empty, JPA...
+	
+	
+	/**
+	 * DVD-aware short description
+	 */
+	@Override
+	public String getShortDescription() {
+		return this.title + " - " + this.director;
 	}
 	
+	
+	
+	/** JPA empty constructor */
+	public Dvd() {}
+	
+	
+	
+	/**
+	 * Regular (business) DVD constructor.
+	 * @param title		DVD title		:-)
+	 * @param director	DVD director	;-D
+	 * @param vatRate	DVD VAT rate	X-]]
+	 */
 	public Dvd(String title, String director, VatRate vatRate) {
 		this.title = title;
 		this.director = director;
 		this.setVatRate(vatRate);
-	}
-	
-	@Override
-	public String getShortDescription() {
-		return this.title + " - " + this.director;
 	}
 	
 }

@@ -15,14 +15,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
-
+/**
+ * Article (Domain entity). Root class for all kind of articles we sell.
+ *
+ */
 @Entity
 @Table(name="Article")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING, length=20) // Ignored by Hibernate when JOINED inheritance is used... 
 public class Article {
-
+	
+	
+	
 	private Integer articleId;
+	/**
+	 * JPA technical PK 
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getArticleId()  {
@@ -31,6 +40,8 @@ public class Article {
 	protected void setArticleId(Integer articleId) {
 		this.articleId = articleId;
 	}
+	
+	
 	
 	private VatRate vatRate;
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -41,25 +52,38 @@ public class Article {
 	protected void setVatRate(VatRate vatRate) {
 		this.vatRate = vatRate;
 	}
-
+	
+	
+	
 	/**
 	 * Short description, to be used in "Article" context (e.g.: shopping basket).
 	 * 
 	 * Articles child classes MUST override this method.
 	 *  
 	 */
-	private String shortDescription = "Les classes filles doivent surcharger cette méthode !";
+	private String shortDescription = "Child classes MUST override this method! " +
+										"Seing this anywhere is proof one didn't. " +
+										"A developper will be sacrificed to calm the gods down.";
 	@Column(name="shortDescription")
 	public String getShortDescription() {
 		return this.shortDescription;
 	}
-	void setShortDescription(String description) {
+	public void setShortDescription(String description) {
 		this.shortDescription = description;
 	}
-
-	protected Article() {
-		// JPA empty constructor
-		this.vatRate = new VatRate();
+	
+	
+	
+	/**	JPA empty constructor */
+	public  Article() {
+		// this.vatRate = new VatRate();
+	}
+	
+	
+	
+	
+	public Article(VatRate vatRate) {
+		this.vatRate = vatRate;
 	}
 
 }

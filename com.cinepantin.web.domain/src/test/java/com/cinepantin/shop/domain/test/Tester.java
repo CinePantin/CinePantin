@@ -15,8 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cinepantin.shop.domain.Article;
 import com.cinepantin.shop.domain.Book;
 import com.cinepantin.shop.domain.Dvd;
+import com.cinepantin.shop.domain.User;
+import com.cinepantin.shop.domain.UserBasket;
 import com.cinepantin.shop.domain.VatRate;
-import com.cinepantin.shop.domain.AFAC.OrderLine;
 import com.cinepantin.shop.service.ArticleService;
 import com.cinepantin.shop.service.BookService;
 
@@ -77,23 +78,34 @@ public class Tester {
     	dvd.setStockQuantity(2);
     	em.persist(dvd);
 		
-    	 Book book = new Book("Le nom de la Rose", "Umberto Ecco", vat55);
-		/*PhysicalBookImpl book = (PhysicalBookImpl) context.getBean(PhysicalBookImpl.class) ;
+    	Book book = new Book("Le nom de la Rose", "Umberto Ecco", vat55);
+    	book.setStockQuantity(5);
+    	System.out.println("book articleId BEFORE persist: " + book.getArticleId());
+    	em.persist(book);
+    	// em.flush();
+    	 System.out.println("book articleId AFTER persist: " + book.getArticleId());
+    	 
+    	 
+     	/*PhysicalBookImpl book = (PhysicalBookImpl) context.getBean(PhysicalBookImpl.class) ;
     	book.setAuthor("Marx");
     	book.setTitle("Le capital");
     	*/
     	
-    	 OrderLine uol = new OrderLine();
-    	 uol.setArticle(book);
-    	 uol.setQuantity(1);
-    	 em.persist(uol);
-    	 System.out.println("Save uol #" + ((OrderLine)uol).getOrderLineId());
-    	
-
-        System.out.println(book.getArticleId());
-    	em.persist(book);
-    	// em.flush();
-        System.out.println(book.getArticleId());
+    	 User user = new User();
+    	 user.setLogin("myLogin");
+    	 user.setPassword("myPassword");
+    	 em.persist(user);
+    	 
+    	 user.setBasket(new UserBasket(user));
+    	 user.getBasket().addArticle(book);
+    	 user.getBasket().addArticle(dvd);
+    	 em.persist(user.getBasket());
+    	 
+//    	 OrderLine uol = new OrderLine();
+//    	 uol.setArticle(book);
+//    	 uol.setQuantity(1);
+//    	 em.persist(uol);
+//    	 System.out.println("Save uol #" + ((OrderLine)uol).getOrderLineId());
     	
     	
 //    	TypedQuery<PhysicalBookImpl> tq = em.createQuery("select b from PhysicalBookImpl b", PhysicalBookImpl.class);

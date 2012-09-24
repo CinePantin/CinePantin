@@ -17,10 +17,23 @@ import org.slf4j.LoggerFactory;
 @Access(AccessType.PROPERTY)
 public class Address {
 	
+	/**
+	 * 	A test SLF4J logger<br />
+	 * 
+	 * 	TODO: use or remove
+	 */
 	protected Logger logger = LoggerFactory.getLogger(RolodexAddress.class);
 	
 	
-	
+	/**
+	 * {@link Address.Mutability} defines mutabilty levels, as returned by {@link Address#getMutability()}.
+	 * 
+	 * Should be checked before trying to set {@link Address} properties. 
+	 * Querying {@link Mutability#isMutable() isMutable()} before setting is a recommended way to avoid throwing exceptions.  
+	 * 
+	 * @see Mutability#isMutable()
+	 *
+	 */
 	public enum Mutability {
 		MUTABLE(true, "Address book addresses can be modified, when they are not used in the user's basket."),
 		MUTABLE_WITH_WARNING_USED_IN_BASKET(true, "User should be warned before modifying an address that is used in his/her basket."),
@@ -46,6 +59,15 @@ public class Address {
 	
 	
 	private Mutability mutability;
+	/**
+	 * {@link Address.Mutability} defines mutabilty levels, as returned by {@link Address#getMutability()}.
+	 * 
+	 * Should be checked before trying to set {@link Address} properties. 
+	 * Querying {@link Mutability#isMutable() isMutable()} before setting is a recommended way to avoid throwing exceptions.  
+	 * 
+	 * @see Mutability#isMutable()
+	 *
+	 */
 	@Transient
 	public Mutability getMutability() {
 		return this.mutability;

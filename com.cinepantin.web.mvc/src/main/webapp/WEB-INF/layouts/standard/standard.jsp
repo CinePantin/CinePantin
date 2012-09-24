@@ -38,6 +38,7 @@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 				</c:forEach>
 			</div>
 			
+			<div class="AFAC"><c:url value="test/test1" var="testLink" /><a href="${testLink}">./test/test1</a></div>
 			
 			<div id="corps">
 				<tiles:insertAttribute name="body" />			<%-- c:import url="includes/main.jsp" /--%>

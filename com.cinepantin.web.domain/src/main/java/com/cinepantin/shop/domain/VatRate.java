@@ -9,9 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+
+
 @Entity
 public class VatRate {
-
+	
+	
+	
 	private int vatId;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,12 +40,15 @@ public class VatRate {
 	
 	
 	
+	/** JPA empty constructor */
+	public VatRate() {}
+	
+	
+	
 	public VatRate(BigDecimal multiplier) {
 		this.multiplier = multiplier;
 	}
 	
-	public VatRate() {
-		// JPA still requires a no-arg, empty constructor
-	}
-
+	
+	
 }

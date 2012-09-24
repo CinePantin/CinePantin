@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>[Login] Authenticate (use case)</title>
+	
+	<style type="text/css">
+		body {
+			font-family: Arial, Helvetica, Sans-serif;
+		}
+		#title:before {
+			/*
+			content: "CinéPantin ";
+			*/
+		}
+		#title {
+			min-height: 128px;
+			padding: 1em 0 0 148px;
+			background: url('logo-128.png') top left no-repeat;;
+		}
+		div.entry {
+			margin: 1em 0em;
+			border-bottom: 2px solid #CCC;
+		}
+		div.label {
+			font-weight: bold;
+			float: left;
+		}
+		div.value {
+			margin: 0 0 0 10em;
+		}
+		fieldset p {
+			margin: .2em 1em;
+		}
+		table {
+			margin: 2em auto 0;
+			border: 2px solid #CCC;
+			border-collapse: collapse;
+		}
+		table caption {
+			
+		}
+		thead {
+			border: 2px solid #CCC;
+			background-color: #EEE;
+			font-weight: bold;
+		}
+		thead td {
+			text-align: center;
+		}
+		tbody {
+			
+		}
+		#flow {
+			display: none;
+		}
+		.todo {
+			color: #F00 !important;
+			background-color: #FF8 !important;
+		}
+		#footer {
+			margin-top: 3em;
+		}
+		#footer:before {
+			/*
+			content: url('_logo-credits.html');
+			content: url('logo-128.png');
+			*/
+		}
+		#footer iframe {
+			width: 100%;
+			height: 3em;
+			border-width: 0px;
+			border-top: 2px solid #CCC;
+		}
+	</style>
+</head>
+<body>
+
+<h1 id="title">Use case</h1>
+
+<div class="entry">
+	<div class="label">Module</div>
+	<div class="value">Login</div>
+</div>
+
+<div class="entry">
+	<div class="label">Use case</div>
+	<div class="value">Authenticate</div>
+</div>
+
+<div class="entry">
+	<div class="label">Main actor</div>
+	<div class="value">Visitor</div>
+</div>
+
+<div class="entry">
+	<div class="label">Secondary actor</div>
+	<div class="value">(none)</div>
+</div>
+
+<div class="entry">
+	<div class="label">Pre-condition</div>
+	<div class="value">
+		Unauthenticated visitor wants to login on her own initiative,<br />
+		<em>or visitor is asked to authenticate, due to the requested action<br />
+		<span class="todo">(consider writing an alternative scenario)</span>
+		</em>
+	</div>
+</div>
+
+<div class="entry">
+	<div class="label">Post-condition</div>
+	<div class="value">Visitor promoted to User, Basket promoted to UserBasket</div>
+</div>
+
+
+<table>
+	<caption>Scenario: authenticate</caption>
+	<thead>
+		<tr>
+			<td>User</td>
+			<td><span id="flow">(flow)</span></td>
+			<td>System</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					In each screen, there's a <strong>login zone</strong>, with:<br />
+					<tt>[loginField]</tt>, <tt>[passwordField]</tt> (input fields)<br />
+					<tt>[loginAction]</tt> (action)<br />
+					+ a <tt>[login message]</tt> (text zone), usually empty.
+				</p>
+				<p>
+					The user enters data in both <br />
+					<tt>[loginField]</tt>, <tt>[passwordField]</tt> fields,<br />
+					and click [OK]
+			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				=&gt;
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+			</td>
+			<td>
+				<p>
+					Checks both <tt>[loginField]</tt>, <tt>[passwordField]</tt>
+					against database.<br />Returns either:
+				</p>
+				<ul>
+					<li>SUCCESS (if combination matches)</li>
+					<li>FAILURE (if not)</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				&lt;=
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li>
+						If SUCCESS :<br/>
+						Replace <strong>login zone</strong> content with:<br />
+						<tt>[LogedInUserName]</tt> + <tt>[LogoutAction]</tt>
+					</li>
+					<li>
+						If FAILURE<br />
+						<strong>login zone</strong> with text added "Not OK, try again"
+					</li>
+				
+			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div id="footer">
+	<iframe src="_logo-credits.html"></iframe>
+</div>
+
+</body>
+</html>

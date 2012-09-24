@@ -120,7 +120,7 @@
 	
 	<!-- 
 	<bean id="OrderLine" class="com.cinepantin.shop.domain.AFAC.OrderLine" />
-	-->
 	<bean id="UserOrderLine" class="com.cinepantin.shop.domain.UserOrderLine" />
+	-->
 	
 </beans>

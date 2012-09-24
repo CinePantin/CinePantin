@@ -1,11 +1,12 @@
 package com.cinepantin.shop.domain;
 
+
+
 import java.util.Date;
 import java.util.Map;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,48 +16,31 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+
 /**
- * An order (Domain Entity), defined as : 
+ * An Order (Domain Entity), defined as : 
  * a {@link UserBasket} 
- * which 
- * 		<del>belongs to a {@link Customer} 
- * 		and</del>
- * 		has been paid for.
+ * which has been paid for.
  * 
  * Orders MUST be immutable
  *
  */
 @Entity
-// @DiscriminatorValue(value="Order")
-
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Table(name="Orders")
-
-//@TableGenerator( // We will need a table generator to populate the "orderId" field 
-//    name="nextOrderId",
-//    table="ID_GEN",
-//    pkColumnName="GEN_KEY",
-//    valueColumnName="GEN_VALUE",
-//    pkColumnValue="ORDER_ID",
-//    allocationSize=1)
 public class Order 
 			extends Basket 
 {
-
-
-
-	// @Id // FIXME: Weird : the @Id is inherited... @GeneratedValue should be enough... 
-	// Actually caused an error : java.lang.ClassCastException: org.hibernate.mapping.SingleTableSubclass cannot be cast to org.hibernate.mapping.RootClass
-	// @GeneratedValue(strategy=GenerationType.TABLE, generator="nextOrderId")  // FIXME : won't work, since JPA specs only require its support on @Id fields... too bad
+	
+	
 	
 	/** JPA technical ID */
 	private Integer orderId;
@@ -70,32 +54,9 @@ public class Order
 	}
 
 	
-//	// Override User to Customer if Customer extends User.
-//	private Integer userId;
-//	/**
-//	 * @return The userId of the {@link User} who passed that order.
-//	 */
-//	@ManyToOne(
-////			targetEntity=User.class
-////			, 
-//			optional=false
-//		)
-//	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
-//	public Integer getUserId() {
-//		return this.userId;
-//	}
-//	public void setUserId(Integer userId) {
-//		this.userId = userId;
-//	}
 	
-	
-
-
-	// Override User to Customer if Customer extends User.
 	private User user;
 	@ManyToOne(
-//			targetEntity=User.class
-//			, 
 			optional=false
 		)
 	@JoinColumn(name="userId", referencedColumnName="userId", nullable=false)
@@ -108,10 +69,6 @@ public class Order
 	
 	
 	
-	
-	
-	
-	//	private Map<Article, Integer> orderLines;
 	/**
 	 * The actual basket contents
 	 */
@@ -122,9 +79,8 @@ public class Order
 	@MapKeyJoinColumn(name="articleId", referencedColumnName="articleId")
 	@Column(name="quantity")
 	public Map<Article, Integer> getOrderLines() {
-		return super.getOrderLines(); //this.orderLineMap;
+		return super.getOrderLines();
 	}
-	
 	
 	
 	
@@ -139,13 +95,6 @@ public class Order
 			optional=false,
 			fetch=FetchType.LAZY
 			)
-	
-//	@JoinColumns(value={
-////			@JoinColumn(name="userId", referencedColumnName="userId", insertable=true, updatable=false)
-////			, 
-//			@JoinColumn(name="shipTo_addressId", referencedColumnName="addressId", insertable=true, updatable=false)
-//		}
-//	)
 	public OrderAddress getShipToAdress() {
 		return this.shipToAdress;
 	}
@@ -167,11 +116,6 @@ public class Order
 			optional=false,
 			fetch=FetchType.LAZY
 			)
-//	@JoinColumns(value={
-//			@JoinColumn(name="userId", referencedColumnName="userId", insertable=true, updatable=false)
-//			, @JoinColumn(name="billTo_addressId", referencedColumnName="addressId", insertable=true, updatable=false)
-//		}
-//	)
 	public OrderAddress getBillToAdress() {
 		return this.billToAdress;
 	}
@@ -181,15 +125,12 @@ public class Order
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	@Temporal(TemporalType.TIMESTAMP)
+	/**
+	 * The date the order has been paid for, making it an Order.
+	 */
 	private Date paiedDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable=false, insertable=true, updatable=false)
 	public Date getPaiedDate() {
 		return paiedDate;
 	}
@@ -203,42 +144,76 @@ public class Order
 	
 	
 	
+	
+	//////////////////////		Order is immutable : deactivate Basket API write methods		/////////////////////////////
+	
+	
+
+	/** <strong>Modifying the contents of an Order is prohibited! DON'T</strong> use this, or get an {@link IllegalAccessError}!
+	 * @param illegal Do that and get an exception!, Do you read me?
+	 * @throws IllegalAccessError Basket API write methods can't be used on Order (immutable contents) */
+	@Override
+	public synchronized void addArticle(Article illegal) {
+		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
+	}
+	/** <strong>Modifying the contents of an Order is prohibited! DON'T</strong> use this, or get an {@link IllegalAccessError}!
+	 * @param illegal Do that and get an exception!, Do you read me?
+	 * @param veryIllegal Are you blind? Deaf? 
+	 * @throws IllegalAccessError Basket API write methods can't be used on Order (immutable contents) */
+	@Override
+	public synchronized void modifyArticleQuantity(Article illegal, Integer veryIllegal) {
+		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
+	}
+	/** <strong>Modifying the contents of an Order is prohibited! DON'T</strong> use this, or get an {@link IllegalAccessError}!
+	 * @param illegal Do that and get an exception!, Do you read me?
+	 * @throws IllegalAccessError Basket API write methods can't be used on Order (immutable contents) */
+	@Override
+	public void clearArticle(Article illegal) {
+		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
+	}
+	/** <strong>Modifying the contents of an Order is prohibited! DON'T</strong> use this, or get an {@link IllegalAccessError}!
+	 * @throws IllegalAccessError Basket API write methods can't be used on Order (immutable contents) */
+	@Override
+	public void clearBasket() {
+		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
+	};
+	
+	
+	
+	
 	/** JPA empty constructor **/
 	public Order() {} // JPA doesn't allow, but should be protected...
 
 	
 
 	
-	// TODO: implement
-//	/**
-//	 * Creates an {@link Order} promoted from a {@link UserBasket} 
-//	 * 
-//	 * @param userBasket to be promoted to an Order
-//	 */
-//	Order(UserBasket userBasket) { // Important: this sensible method should be kept with a PACKAGE visibility...
-//		// this.setBasketId(userBasket.getBasketId());
-//		this.setOrderLines(userBasket.getOrderLines());
-//		// this.setBillToAdress(userBasket.getBillToAdress()); // TODO: implement promotion
-//		// this.setShipToAdress(userBasket.getShipToAdress()); // TODO: implement promotion
-//		this.setPaiedDate(new Date( System.currentTimeMillis() )); // TODO: check whether payment dateTime can be returned by payment API
-//	}
 
-
-	
 	/**
-	 * Order contents are immutable
+	 * <strong>Checkout method</strong> : creates an {@link Order} promoted from a {@link UserBasket}.<br />
+	 * {@link UserBasket#isOrderable()} should really be checked before calling this method, in order to avoid IllegalArgumentException risks.
+	 * 
+	 * @param userBasket to be promoted to an Order
+	 * 
+	 * @throws IllegalArgumentException if userBasket.isOrderable() yields false
 	 */
-	@Override
-	public synchronized void addArticle(Article illegal) {
-		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
+	Order(UserBasket userBasket) { // Important: this sensible method should be kept with a PACKAGE visibility...
+		
+		if (!userBasket.isOrderable()) { // check if UserBasket is OK before promoting
+			
+			throw new IllegalArgumentException("Trying to order a UserBasket that doesn't satisfy isOrderable() requirements!");
+			
+		} else { // OK to proceed
+			
+			this.setUser(userBasket.getUser());
+			this.setOrderLines(userBasket.getOrderLines());  // TODO: check if deep copy is needed here.
+			this.setBillToAdress(new OrderAddress(userBasket.getBillToAdress()));
+			this.setShipToAdress(new OrderAddress(userBasket.getShipToAdress()));
+			this.setPaiedDate(new Date( System.currentTimeMillis() )); // TODO: check whether payment dateTime can be returned by payment API
+		
+		}
 	}
-	@Override
-	public synchronized void modifyArticleQuantity(Article illegal, Integer veryIllegal) {
-		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
-	}
-	@Override
-	public void clearArticle(Article illegal) {
-		throw new IllegalAccessError("Modifying the contents of an Order is prohibited.");
-	}
+	
+	
+	
 
 }
