@@ -85,5 +85,40 @@ public class Article {
 	public Article(VatRate vatRate) {
 		this.vatRate = vatRate;
 	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((articleId == null) ? 0 : articleId.hashCode());
+		return result;
+	}
+	
+	// equals seems to be required for Article to work properly as a Map key
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Article other = (Article) obj;
+		if (articleId == null) {
+			if (other.articleId != null)
+				return false;
+		} else if (!articleId.equals(other.articleId))
+			return false;
+		return true;
+	}
+	
+	
+	
 
 }

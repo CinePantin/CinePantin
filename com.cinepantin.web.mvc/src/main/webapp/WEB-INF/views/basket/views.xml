@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- Pages -->
+	<definition name="views/basket/index" extends="layouts/public">
+		<put-attribute name="title" value="Votre panier" />
+		<!-- 
+		<put-attribute name="body" value="Au moins, ça n'a pas planté dans le controlleur ;-)." />
+		 -->
+		<put-attribute name="body" value="/WEB-INF/views/basket/index.jsp" />
+	</definition>
+	
+	<definition name="views/basket/add-success" extends="layouts/public">
+		<put-attribute name="title">Ajouté au panier</put-attribute>
+		<put-attribute name="body">Succès !</put-attribute>
+	</definition>
+	
+	
+</tiles-definitions>

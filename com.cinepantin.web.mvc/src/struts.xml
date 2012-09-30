@@ -17,7 +17,11 @@
 		!
 		+-->
 	<!-- Nos classes Struts sont gérées par Spring -->
+	<!-- 
 	<constant name="struts.objectFactory" value="spring" />
+	-->
+    <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+    <!-- These two values seem to produce the same behaviour... -->
 	
 	<!-- On veut avoir de jolies URL -->
 	<constant name="struts.action.extension" value=",action" />
@@ -36,6 +40,10 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	<!--  constant name="struts.patternMatcher" value="regex" / -->
 	
+	<!-- (unsuccessful) try to allow use of identifiers like "class" (for getClass()) 
+	in EL expressions, as required in /WEB-INF/views/home/index.jsp
+	<constant name="org.apache.el.parser.SKIP_IDENTIFIER_CHECK" value="true" />
+	-->
 	
 	
 	
@@ -48,10 +56,72 @@
 	
 		<default-action-ref name="index"></default-action-ref>
 		
-		<action name="index">
-			<result type="tiles">standard-layout</result>
+		<action name="index" class="SpringStrutsHomeControllerAnyArticleBean" method="index">
+			<result type="tiles">views/home/index</result>
 		</action>
 		
+	</package>
+	
+	
+	
+	<!--+
+		!
+		!	Account actions definition
+		!
+		+-->
+	<package extends="tiles-default" name="account" namespace="/account">
+		
+		<action name="login" method="login" class="SpringStrutsAccountController"><!-- TODO: doesn't need to be Spring-managed -->
+			<result name="success" type="tiles">views/account/login-success</result>
+			<result name="error" type="tiles">views/account/login-error</result>
+		</action>
+		
+		<!-- 
+		<action name="login-ajax" method="loginAjax" class="SpringStrutsAccountController">
+			<result name="success" type="json">views/account/login-success</result>
+			<result name="error" type="json">views/account/login-error</result>
+		</action>
+		-->
+		
+		<action name="logout" method="logout" class="SpringStrutsAccountController"><!-- TODO: doesn't need to be Spring-managed -->
+			<result name="success" type="tiles">views/account/logout-success</result>
+			<result name="error" type="tiles">views/account/logout-error</result>
+		</action>
+		 
+	</package>
+	
+	
+	
+	
+	<!--+
+		!
+		!	Basket package definition
+		!
+		+-->
+	<package name="basket" namespace="/trn/basket" extends="tiles-default">
+	
+		<action name="view" class="com.cinepantin.web.mvc.action.BasketController" method="view">
+			<result name="success" type="tiles">views/basket/index</result>
+		</action>
+		
+		<action name="add/*/*/*" class="com.cinepantin.web.mvc.action.BasketController" method="add{2}">
+			<param name="articleId">{3}</param>
+			<param name="quantity">{1}</param>
+			<!--
+			<result name="success" type="tiles">views/basket/add-success</result>
+			-->
+			<result name="success" type="tiles">views/basket/index</result>
+		</action>
+		
+		<action name="remove/all/*/*" class="com.cinepantin.web.mvc.action.BasketController" method="remove{1}Ref">
+			<param name="articleId">{2}</param>
+			<result name="success" type="tiles">views/basket/index</result>
+		</action>
+		
+		<action name="clear-all" class="com.cinepantin.web.mvc.action.BasketController" method="clearAll">
+			<result name="success" type="tiles">views/basket/index</result>
+		</action>
+	
 	</package>
 	
 	

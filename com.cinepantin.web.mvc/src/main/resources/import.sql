@@ -13,3 +13,9 @@ INSERT INTO Book VALUES (20, "Milan Kundera", "un bouquin poids-plume", "L'insou
 
 INSERT INTO Dvd VALUES (1, "David Lynch", "un dvd possible", "The Mission", 4);
 INSERT INTO Dvd VALUES (1, "David Lynch", "un dvd en peau de serpent", "Sailor & Lula", 5);
+
+INSERT INTO User VALUES ("User", 1, "toto", "toto");
+INSERT INTO User VALUES ("User", 2, "tata", "tata");
+INSERT INTO User VALUES ("User", 3, "titi", "titi");
+
+INSERT INTO Baskets VALUES (1, NULL, 1, NULL);

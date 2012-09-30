@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- Pages -->
+	<definition name="views/account/login-success" extends="layouts/public">
+		<put-attribute name="title" value="Vous êtes connecté !" />
+		<!-- 
+		<put-attribute name="body" value="Vous avez été authentifié avec succès." />
+		 -->
+		<put-attribute name="body">
+			<![CDATA[
+			<p id="loginOutcome">Vous avez été authentifié avec succès</p>
+			]]>
+		</put-attribute>
+	</definition>
+	
+	<definition name="views/account/login-error" extends="layouts/public">
+		<put-attribute name="title" value="Echec de la connexion !" />
+		<!-- 
+		<put-attribute name="body" value="Votre authentification a échoué." />
+		-->
+		<put-attribute name="body">
+			<![CDATA[
+			<p id="loginOutcome">Votre authentification a échoué</p>
+			]]>
+		</put-attribute>
+	</definition>
+	
+	<definition name="views/account/logout-success" extends="layouts/public">
+		<put-attribute name="title" value="Vous vous êtes déconnecté !" />
+		<!-- 
+		<put-attribute name="body" value="Vous vous êtes déconnecté avec succès." />
+		-->
+		<put-attribute name="body">
+			<![CDATA[
+			<p id="loginOutcome">Vous vous êtes déconnecté avec succès</p>
+			]]>
+		</put-attribute>
+		
+	</definition>
+	
+	<definition name="views/account/logout-error" extends="layouts/public">
+		<put-attribute name="title" value="Echec de la déconnexion !" />
+		<!--
+		<put-attribute name="body" value="Votre déconnexion a échoué (WTF?!)" /> 
+		-->
+		<put-attribute name="body">
+			<![CDATA[
+			<p id="loginOutcome">Votre demande de déconnexion a échoué</p>
+			]]>
+		</put-attribute>
+	</definition>
+	
+</tiles-definitions>

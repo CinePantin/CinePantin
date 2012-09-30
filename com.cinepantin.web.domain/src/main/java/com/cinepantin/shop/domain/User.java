@@ -79,10 +79,13 @@ public class User
 			targetEntity=UserBasket.class
 			, mappedBy="user"
 			, optional=true // relationship is bi-directional, so we will need a user without basket before the UserBasket can reference User (!) (they don't speak about that in books...)
-			, fetch=FetchType.LAZY
+			// , fetch=FetchType.LAZY
 			// , cascade={CascadeType.PERSIST} // TODO: decide whether to cascade User persistence to UserBasket persistence
 		) 
 	public UserBasket getBasket() { // Hides Basket super.getBasket (defines mapping with UserBasket entity, when Basket is no entity)
+		if (this.basket == null) {
+			this.basket = new UserBasket(this);
+		}
 		return this.basket;
 	}
 	public void setBasket(UserBasket userBasket) {

@@ -21,6 +21,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 
 
 
@@ -74,12 +77,13 @@ public class UserBasket
 	/**
 	 * The actual basket contents
 	 */
-	// The following has been greately inspired by the @MapKeyJoinColumn Javadoc
+	// The following has been greatly inspired by the @MapKeyJoinColumn Javadoc
 	@Override
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="BasketLine", joinColumns=@JoinColumn(name="basketId"))
 	@MapKeyJoinColumn(name="articleId", referencedColumnName="articleId")
-	@Column(name="quantity")
+	@Column(name="quantity", insertable=true, updatable=true, nullable=false)
+	// @Cascade({CascadeType.ALL,CascadeType.PERSIST,CascadeType.MERGE}) // Hibernate-only anotation ; thought it would be necessary, but it seems it isn't (so far)
 	public Map<Article, Integer> getOrderLines() {
 		return super.getOrderLines(); //this.orderLineMap;
 	}

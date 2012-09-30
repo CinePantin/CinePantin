@@ -50,6 +50,9 @@ public class ArticleServiceImpl<A extends Article>
 		}
 	}
 
+	/** FIXME: remove this method; Articles can't be removed ! 
+	 * @deprecated
+	 * */
 	public void remove(int idArticle) {
 		Article article = em.find(Article.class, idArticle);
 		if (article != null) {

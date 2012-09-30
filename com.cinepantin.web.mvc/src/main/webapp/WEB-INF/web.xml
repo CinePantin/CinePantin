@@ -37,6 +37,11 @@
 	   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- Spring helper for Struts+Tiles -->
+	<listener>
+	   <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
 	
 	<!--+
 		!	Struts !
@@ -66,13 +71,18 @@
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
 		<param-value>
 			/WEB-INF/layouts/standard/layouts.xml,
-			/WEB-INF/layouts/test/layout.xml,
-			/WEB-INF/controllers/test/view.xml,
 			/WEB-INF/controllers/hotels/views.xml,
-			/WEB-INF/controllers/articles/views.xml
-		</param-value><!--  -->
+			/WEB-INF/controllers/articles/views.xml,
+			
+			/WEB-INF/layouts/public/layout.xml,
+			/WEB-INF/views/home/views.xml,
+			/WEB-INF/views/account/views.xml,
+			/WEB-INF/views/basket/views.xml
+		</param-value><!--
+			/WEB-INF/controllers/test/view.xml,  -->
 	</context-param>
 	<listener>
+		<!-- TODO: presumably to be replaced with a Spring glue class (error if declaring struts bean with scope request) -->
 		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
 	</listener>
 	

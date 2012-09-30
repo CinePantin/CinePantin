@@ -55,7 +55,7 @@
 					!		value="create-drop" means the same as "create" but also drops tables when Hibernate closes; 
 					!		value="validate" makes no changes to the database 
 					+-->
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
 				<prop key="hibernate.show_sql">true</prop>
 	      		<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<!--  prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop -->
@@ -109,6 +109,9 @@
 		<constructor-arg ref="Book" /><!- - passing along the parameterized type of this service instance - ->
 	</bean>
 	-->
+	
+	<bean id="UserServiceBean" class="com.cinepantin.shop.service.impl.UserServiceImpl" scope="prototype" />
+	<bean id="BasketServiceBean" class="com.cinepantin.shop.service.impl.BasketServiceImpl" scope="prototype" />
 	
 	<bean id="Article" class="com.cinepantin.shop.domain.Article" />
 	<!-- 

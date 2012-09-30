@@ -7,7 +7,7 @@
 <tiles-definitions>
 	
 	<!-- Layout -->
-	<definition name="test-layout" template="/WEB-INF/layouts/test/layout.jsp">
+	<definition name="layouts/public" template="/WEB-INF/layouts/public/layout.jsp">
 		
 		<!--+ 
 			!	NB: used, but almost "undefined" in this template are the following attributes:

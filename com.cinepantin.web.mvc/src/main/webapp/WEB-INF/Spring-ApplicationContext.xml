@@ -169,8 +169,10 @@
 		<constructor-arg ref="Article" /><!-- passing along the parameterized type of this service instance -->
 	</bean>
 	
+	<!-- 
 	<bean id="BookService" class="com.cinepantin.shop.service.impl.BookServiceImpl" scope="prototype" />
-	
+	-->
+	 
 	<bean id="Article" class="com.cinepantin.shop.domain.Article" />
 	<!-- 
 	<bean id="VatRate" class="com.cinepantin.shop.domain.VatRate" />
@@ -183,6 +185,12 @@
 	<bean id="Basket" class="com.cinepantin.shop.domain.Basket" />
 	<bean id="UserBasket" class="com.cinepantin.shop.domain.UserBasket" />
 	-->
+	
+	<bean id="UserServiceBean" class="com.cinepantin.shop.service.impl.UserServiceImpl" scope="prototype" />
+	<bean id="BasketServiceBean" class="com.cinepantin.shop.service.impl.BasketServiceImpl" scope="prototype" />
+	
+	
+	
 	
 
 	<!--+
@@ -199,6 +207,21 @@
         class="com.cinepantin.web.mvc.action.ArticleBrowse" >
         <constructor-arg ref="AnyArticleService" />
 	</bean>
+	
+	<bean id="SpringStrutsHomeControllerAnyArticleBean" scope="prototype"
+        class="com.cinepantin.web.mvc.action.HomeController" >
+        <constructor-arg ref="AnyArticleService" />
+	</bean>
+	
+	<bean id="SpringStrutsHomeControllerBookBean" scope="prototype"
+        class="com.cinepantin.web.mvc.action.HomeController" >
+        <constructor-arg ref="BookService" />
+	</bean>
+	
+	<bean id="SpringStrutsAccountController" scope="request"
+        class="com.cinepantin.web.mvc.action.AccountController" >
+	</bean>
+	
 	
 	<bean id="testSpringStrutsTilesMVC" scope="prototype" class="tests.test" />
 	

@@ -1,131 +1,5 @@
 <uml>
    <greenVersion="30500"/>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="211"/>
-      <y="785"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="348"/>
-      <y="1047"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="120"/>
-      <y="1044"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="763"/>
-      <y="-51"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="715"/>
-      <y="258"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="331"/>
-      <y="178"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="39"/>
-      <y="177"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{VatRate.java[VatRate"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-29"/>
-      <y="786"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-8"/>
-      <y="1210"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="222"/>
-      <y="1209"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Administrator.java[Administrator"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="782"/>
-      <y="693"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="145"/>
-      <y="-102"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{AddressFields.java[AddressFields"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-241"/>
-      <y="-248"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-352"/>
-      <y="191"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address[Mutability"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-504"/>
-      <y="5"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-638"/>
-      <y="460"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-630"/>
-      <y="190"/>
-   </type>
-   <type>
-      <name="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
-      <height="-1"/>
-      <width="-1"/>
-      <x="-205"/>
-      <y="462"/>
-   </type>
    <note>
       <text="Map&lt;Article, Integer&gt; UserBasket.orderLines
 
@@ -137,104 +11,237 @@
 "/>
       <height="104"/>
       <width="187"/>
-      <x="212"/>
-      <y="625"/>
+      <x="822"/>
+      <y="-274"/>
    </note>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="312"/>
+      <y="363"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address[Mutability"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="967"/>
+      <y="539"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{AddressFields.java[AddressFields"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="743"/>
+      <y="536"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Administrator.java[Administrator"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="-6"/>
+      <y="382"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="1090"/>
+      <y="-274"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="452"/>
+      <y="-360"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="926"/>
+      <y="189"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="1180"/>
+      <y="187"/>
+   </type>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="1303"/>
+      <y="34"/>
+   </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{ImmaterialArticle.java[ImmaterialArticle"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="664"/>
+      <y="-87"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="471"/>
+      <y="635"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="1062"/>
+      <y="33"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Book.java[Book"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
       <bendpoints>
       </bendpoints>
    </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="203"/>
+      <y="634"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="-65"/>
+      <y="573"/>
+   </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddressCid.java[RolodexAddressCid"/>
       <bendpoints>
       </bendpoints>
    </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="12"/>
+      <y="-93"/>
+   </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Dvd.java[Dvd"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Administrator.java[Administrator"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
       <bendpoints>
       </bendpoints>
    </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="301"/>
+      <y="-88"/>
+   </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{PhysicalArticle.java[PhysicalArticle"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{RolodexAddress.java[RolodexAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Administrator.java[Administrator"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
       <bendpoints>
       </bendpoints>
    </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{VatRate.java[VatRate"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="1338"/>
+      <y="-276"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Article.java[Article"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{VatRate.java[VatRate"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <type>
+      <name="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="24"/>
+      <y="-360"/>
+   </type>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{User.java[User"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Address.java[Address"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.dependency.DependencyIPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Order.java[Order"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{OrderAddress.java[OrderAddress"/>
-      <bendpoints>
-      </bendpoints>
-   </relationship>
-   <relationship>
-      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
-      <sourceType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{UserBasket.java[UserBasket"/>
-      <targetType="=com.cinepantin.web.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
+      <sourceType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Visitor.java[Visitor"/>
+      <targetType="=com.cinepantin.shop.domain/src\/main\/java<com.cinepantin.shop.domain{Basket.java[Basket"/>
       <bendpoints>
       </bendpoints>
    </relationship>
