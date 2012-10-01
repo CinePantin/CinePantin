@@ -1,3 +1,9 @@
+-- NOTA: This schema is really out of date now:
+--         * Loads of table have been added 
+--         * Schema name has changed
+-- => TODO: regenerate schema (or drop the file ;-))
+
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';

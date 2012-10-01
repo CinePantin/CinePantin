@@ -29,9 +29,9 @@
 	</bean>
 	<util:map id="dbProps">
 		<entry key="db.driver" value="com.mysql.jdbc.Driver"/>
-		<entry key="db.jdbcurl" value="jdbc:mysql://localhost/desEssais"/>
-		<entry key="db.username" value="desEssais"/>
-		<entry key="db.password" value="desEssais"/>
+		<entry key="db.jdbcurl" value="jdbc:mysql://localhost/CinePantin"/>
+		<entry key="db.username" value="CinePantin"/>
+		<entry key="db.password" value="CinePantin"/>
 	</util:map>
 	
 	<!--+
